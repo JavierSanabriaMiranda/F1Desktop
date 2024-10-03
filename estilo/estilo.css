@@ -1,2 +1,20 @@
  /* Javier Sanabria Miranda UO293758 */
- body { font-family: Georgia }
+ 
+ /* Especificidad = 001 */
+ body { 
+    font-family: Georgia, Times, "Times New Roman", serif;
+    background-color: #EFFAFD;
+    color: #4A8BDF;
+} 
+
+/* Especificidad = 001 */
+/* No es necesario establecer un color de primer plano puesto que ya lo hereda de body */
+header {
+    background-color: #EFFAFD;
+}
+
+/* Especificidad = 002 */
+/* No es necesario establecer un color de fondo puesto que ya lo hereda de body */
+h1, nav {
+    color: #A0006D;
+}

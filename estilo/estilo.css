@@ -105,21 +105,19 @@ dt {
 /* ----- Estilo para las Tablas ----- */
 
 /* Especificidad 001 */
-/* No es necesario establecer un color puesto que lo hereda de body */
-table, th {
+tr {
     background-color: #0000ff;
-}
-
-/* Especificidad 001 */
-table {
     border-style: solid;
-    border-color:#EFFAFD;
-    width: 70vw;
+    border-color: #0000ff;
 }
 
 /* Especificidad 001 */
+/* No es necesario establecer un color puesto que lo hereda de body */
 th {
+    background-color: #0000ff;
     color: #CAEFF7;
+    border-style: solid;
+    border-color: #0000ff;
 }
 
 /* Especificidad 001 */
@@ -127,6 +125,8 @@ th {
 td {
     text-align: center;
     background-color: #EFFAFD;
+    border-style: solid;
+    border-color: #0000ff;
 }
 
 /* Especificidad 001 */

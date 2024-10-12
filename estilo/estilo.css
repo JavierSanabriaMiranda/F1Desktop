@@ -104,6 +104,10 @@ dt {
 
 /* ----- Estilo para las Tablas ----- */
 
+table {
+    width: 70%;
+}
+
 /* Especificidad 001 */
 tr {
     background-color: #0000ff;

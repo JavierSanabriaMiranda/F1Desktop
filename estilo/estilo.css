@@ -1,4 +1,11 @@
  /* Javier Sanabria Miranda UO293758 */
+
+ /* Colores:
+    background: #EFFAFD
+    body-color: #0000ff
+    titles-color: #A0006D
+ */
+
  
  /* Especificidad = 001 */
  body { 
@@ -10,11 +17,137 @@
 /* Especificidad = 001 */
 /* No es necesario establecer un color de primer plano puesto que ya lo hereda de body */
 header {
-    background-color: #EFFAFD;
+    background-color: #0000ff;
 }
 
 /* Especificidad = 002 */
 /* No es necesario establecer un color de fondo puesto que ya lo hereda de body */
-h1, nav {
+h1 a, nav a {
+    color: #EFFAFD;
+    text-decoration-line: none;
+}
+
+/* Especificidad = 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+h2 {
+    color: #A0006D;
+    font-weight: 800;
+}
+
+/* Especificidad = 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+h3 {
     color: #A0006D;
 }
+
+/* ----- Estilo del "Estás aqui: " ----- */
+
+/* Especificidad = 002 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+body > p, body > a {
+    color: #0000ff;
+    font-size: 1.4vmin;
+}
+
+
+/* ----- Estilo de Enlaces Externos ----- */
+
+/* Especificidad 021 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+a[href ^= "http"]:link, a[href ^= "http"]:visited  {
+    color:#0000ff;
+}
+
+/* Especificidad 021 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+a[href ^= "http"]:hover {
+    color:#A0006D;
+}
+
+/* Especificidad 011 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+a[class = "active"] {
+    color:#ACFF75;
+}
+
+/* ----- Estilo de Listas (marcadores de listas) ----- */
+
+/* Especificidad 001 */
+ul {
+    list-style-type: symbols(cyclic '○' '●');
+}
+
+/* Especificidad 002 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+li::marker {
+    color: #A0006D;
+}
+
+/* Especificidad 001 */
+li {
+    margin-left: 0.1vw;
+}
+
+/* Especificidad 003 */
+ol > li::marker { 
+    content: counters(list-item,'.') '.'; 
+}
+
+/* ----- Estilo de Listas de Definición ----- */
+
+/* Especificidad 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+dt {
+    color: #A0006D;
+    font-weight: bold;
+}
+
+/* ----- Estilo para las Tablas ----- */
+
+/* Especificidad 001 */
+/* No es necesario establecer un color puesto que lo hereda de body */
+table, th {
+    background-color: #0000ff;
+}
+
+/* Especificidad 001 */
+table {
+    border-style: solid;
+    border-color:#EFFAFD;
+    width: 70vw;
+}
+
+/* Especificidad 001 */
+th {
+    color: #CAEFF7;
+}
+
+/* Especificidad 001 */
+/* No es necesario establecer un color puesto que lo hereda de body */
+td {
+    text-align: center;
+    background-color: #EFFAFD;
+}
+
+/* Especificidad 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+caption {
+    font-size: large;
+    color: #A0006D;
+    font-weight: bold;
+}
+
+/* ----- Multimedia ----- */
+
+@media only screen and (max-width: 900px) {
+    /* Especificidad 001 */
+    video {
+        width:80%;
+        height:auto;
+    }
+    /* Especificidad 001 */
+    audio {
+        width: 60%;
+    }
+}
+

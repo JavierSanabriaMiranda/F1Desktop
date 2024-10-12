@@ -1,0 +1,37 @@
+/* Especificidad 001 */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Especificidad = 001 */
+nav {
+    display: flex;
+    gap: 2%;
+    flex-wrap: wrap; /* Permite que los enlaces se ajusten en varias filas */
+    justify-content: flex-end; /* Justifica el contenido del nav a la derecha */
+    width: auto; /* Permite que el ancho del nav se ajuste al contenido */
+}
+
+/* Media Querie para tablets */
+@media only screen and (max-width: 1024px) {
+    /* Especificidad = 001 */
+    nav {
+        justify-content: space-around; /* Distribuye los elementos de forma más uniforme */
+    }
+}
+/* Media Querie para moviles */
+@media only screen and (max-width: 700px) {
+
+    /* Especificidad = 001 */
+    nav {
+        flex-direction: column; /* Coloca los enlaces en una columna para ocupar el ancho completo */
+        align-items: center; /* Centra los enlaces horizontalmente */
+    }
+
+    /* Especificidad = 002 */
+    body>p{
+        display: none; /* Oculta las migas */
+    }
+}

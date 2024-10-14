@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuitos SYSTEM "circuito.dtd">
+<circuitos>
+    <circuito>
+        <nombre>Circuito Internacional de Losail</nombre>
+        <longitudCircuito unidades="metros">5.419</longitudCircuito>
+        <anchura unidades="metros">12</anchura>
+        <fecha>01-12-2024</fecha>
+        <hora>17:00</hora>
+        <vueltas>57</vueltas>
+        <localidad>Losail</localidad>
+        <pais>Qatar</pais>
+        <referencias>
+            <referencia>https://es.wikipedia.org/wiki/Circuito_Internacional_de_Losail</referencia>
+            <referencia>https://www.formula1.com/en/racing/2024/qatar</referencia>
+        </referencias>
+        <fotografias>
+            <fotografia>circuito_losail_1.jpg</fotografia>
+            <fotografia>circuito_losail_2.jpg</fotografia>
+        </fotografias>
+        <coordenadas>
+            <longitud>51°27'00.8"E</longitud>
+            <latitud>25°29'17.6"N</latitud>
+            <altitud unidades="metros sobre el nivel del mar">13</altitud>
+        </coordenadas>
+        <tramos>
+            <tramo>
+                <distancia unidades="metros">510</distancia>
+                <coordenadas>
+                    <longitud>51°26'55.4"E</longitud>
+                    <latitud>25°29'35.5"N</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">194</distancia>
+                <coordenadas>
+                    <longitud>51°26'55.4"E</longitud>
+                    <latitud>25°29'35.5"N</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+        </tramos>
+    </circuito>
+</circuitos>

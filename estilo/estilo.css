@@ -112,7 +112,6 @@ table {
 tr {
     background-color: #0000ff;
     border-style: solid;
-    border-color: #0000ff;
 }
 
 /* Especificidad 001 */
@@ -121,7 +120,6 @@ th {
     background-color: #0000ff;
     color: #CAEFF7;
     border-style: solid;
-    border-color: #0000ff;
     width: 30rem;
 }
 

@@ -17,6 +17,7 @@ nav {
 /* Media Querie para tablets */
 @media only screen and (max-width: 1024px) {
     /* Especificidad = 001 */
+    /* Se redefine la propiedad justify-content del header para el contenido del flexbox nav */
     nav {
         justify-content: space-around; /* Distribuye los elementos de forma más uniforme */
     }

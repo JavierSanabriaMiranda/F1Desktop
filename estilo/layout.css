@@ -3,19 +3,33 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+}
+
+header a {
+    padding: 0vw 2vw;
+}
+
+/* Especificidad = 002 */
+nav a {
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 /* Especificidad = 001 */
 nav {
     display: flex;
-    gap: 2%;
-    flex-wrap: wrap; /* Permite que los enlaces se ajusten en varias filas */
     justify-content: flex-end; /* Justifica el contenido del nav a la derecha */
     width: auto; /* Permite que el ancho del nav se ajuste al contenido */
 }
 
 /* Media Querie para tablets */
 @media only screen and (max-width: 1024px) {
+    
+    header {
+        flex-direction: column;
+    }
+
     /* Especificidad = 001 */
     /* Se redefine la propiedad justify-content del header para el contenido del flexbox nav */
     nav {
@@ -35,4 +49,8 @@ nav {
     body>p{
         display: none; /* Oculta las migas */
     }
+}
+
+body>p, main, h2, aside {
+    padding: 0vw 3vw
 }

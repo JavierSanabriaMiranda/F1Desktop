@@ -19,16 +19,16 @@
             <fotografia>circuito_losail_2.jpg</fotografia>
         </fotografias>
         <coordenadas>
-            <longitud>51°27'00.8"E</longitud>
-            <latitud>25°29'17.6"N</latitud>
-            <altitud unidades="metros sobre el nivel del mar">13</altitud>
+    <longitud>51.450222</longitud>
+    <latitud>25.488222</latitud>
+    <altitud unidades="metros sobre el nivel del mar">13</altitud>
         </coordenadas>
         <tramos>
             <tramo>
                 <distancia unidades="metros">510</distancia>
                 <coordenadas>
-                    <longitud>51°26'55.4"E</longitud>
-                    <latitud>25°29'35.5"N</latitud>
+                    <longitud>51.448722</longitud>
+                    <latitud>25.493194</latitud>
                     <altitud unidades="metros sobre el nivel del mar">13</altitud>
                 </coordenadas>
                 <sector>1</sector>
@@ -36,11 +36,209 @@
             <tramo>
                 <distancia unidades="metros">194</distancia>
                 <coordenadas>
-                    <longitud>51°26'55.4"E</longitud>
-                    <latitud>25°29'35.5"N</latitud>
+                    <longitud>51.448722</longitud>
+                    <latitud>25.493194</latitud>
                     <altitud unidades="metros sobre el nivel del mar">13</altitud>
                 </coordenadas>
                 <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">168</distancia>
+                <coordenadas>
+                    <longitud>51.449875</longitud>
+                    <latitud>25.492523</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">137</distancia>
+                <coordenadas>
+                    <longitud>51.450738</longitud>
+                    <latitud>25.493104</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">162</distancia>
+                <coordenadas>
+                    <longitud>51.450768</longitud>
+                    <latitud>25.494440</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">398</distancia>
+                <coordenadas>
+                    <longitud>51.453472</longitud>
+                    <latitud>25.497146</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">137</distancia>
+                <coordenadas>
+                    <longitud>51.454706</longitud>
+                    <latitud>25.496359</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">150</distancia>
+                <coordenadas>
+                    <longitud>51.453869</longitud>
+                    <latitud>25.495071</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>1</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">118</distancia>
+                <coordenadas>
+                    <longitud>51.453118</longitud>
+                    <latitud>25.494268</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">89</distancia>
+                <coordenadas>
+                    <longitud>51.453718</longitud>
+                    <latitud>25.493938</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">280</distancia>
+                <coordenadas>
+                    <longitud>51.456244</longitud>
+                    <latitud>25.494853</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">172</distancia>
+                <coordenadas>
+                    <longitud>25.493870</longitud>
+                    <latitud>51.456695</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">220</distancia>
+                <coordenadas>
+                    <longitud>25.492107</longitud>
+                    <latitud>51.455628</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">11</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">199</distancia>
+                <coordenadas>
+                    <longitud>25.491531</longitud>
+                    <latitud>51.453831</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">86</distancia>
+                <coordenadas>
+                    <longitud>25.490829</longitud>
+                    <latitud>51.453691</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">308</distancia>
+                <coordenadas>
+                    <longitud>25.489812</longitud>
+                    <latitud>51.456615</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">140</distancia>
+                <coordenadas>
+                    <longitud>25.489938</longitud>
+                    <latitud>51.457907</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>2</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">86</distancia>
+                <coordenadas>
+                    <longitud>25.490035</longitud>
+                    <latitud>51.458728</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>3</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">218</distancia>
+                <coordenadas>
+                    <longitud>25.488515</longitud>
+                    <latitud>51.460016</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>3</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">183</distancia>
+                <coordenadas>
+                    <longitud>25.486980</longitud>
+                    <latitud>51.458991</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">14</altitud>
+                </coordenadas>
+                <sector>3</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">305</distancia>
+                <coordenadas>
+                    <longitud>25.487348</longitud>
+                    <latitud>51.455976</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">14</altitud>
+                </coordenadas>
+                <sector>3</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">439</distancia>
+                <coordenadas>
+                    <longitud>25.484064</longitud>
+                    <latitud>51.453777</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">13</altitud>
+                </coordenadas>
+                <sector>3</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">107</distancia>
+                <coordenadas>
+                    <longitud>25.484181</longitud>
+                    <latitud>51.452704</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">14</altitud>
+                </coordenadas>
+                <sector>3</sector>
+            </tramo>
+            <tramo>
+                <distancia unidades="metros">652</distancia>
+                <coordenadas>
+                    <longitud>25.488258</longitud>
+                    <latitud>51.450215</latitud>
+                    <altitud unidades="metros sobre el nivel del mar">12</altitud>
+                </coordenadas>
+                <sector>3</sector>
             </tramo>
         </tramos>
     </circuito>

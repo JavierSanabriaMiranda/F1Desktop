@@ -1,5 +1,5 @@
 <!ELEMENT circuitos (circuito+)>
-<!ELEMENT circuito (nombre, longitudCircuito, anchura, fecha, hora, vueltas, localidad, pais, referencias, fotografias, videos?, coordenadas+, tramos)>
+<!ELEMENT circuito (nombre, longitudCircuito, anchura, fecha, hora, vueltas, localidad, pais, referencias, fotografias, videos?, coordenadas, tramos)>
 <!ELEMENT nombre (#PCDATA)>
 <!ELEMENT longitudCircuito (#PCDATA)>
 <!ATTLIST longitudCircuito unidades CDATA #REQUIRED>

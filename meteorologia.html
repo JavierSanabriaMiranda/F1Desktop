@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <script src="js/pais.js"></script>
 </head>
 
 <body>
@@ -34,7 +35,17 @@
      <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> Meteorología</p>
 
     <h2>Meteorología</h2>
-    <p>En desarrollo</p>
+    <main>
+        <script>
+            document.write("<h2>" + pais.getCountryName() + "</h2>");
+            document.write("<p>Capital: " + pais.getCapitalName() + "</p>"); 
+            document.write(pais.getSecondaryInfo());
+            document.write(pais.writeFinishingLineCoords());
+        </script>
+    </main>
+    
+
+
 </body>
 
 </html>

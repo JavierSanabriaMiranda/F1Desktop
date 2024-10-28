@@ -13,12 +13,12 @@ class Pais {
         this.religion = "Islam";
     }
 
-    getNombrePais() {
-        return this.nombrePais;
+    getCountryName() {
+        return this.countryName;
     }
 
-    getNombreCapital() {
-        return this.nombreCapital;
+    getCapitalName() {
+        return this.capitalName;
     }
 
     getSecondaryInfo() {
@@ -30,3 +30,6 @@ class Pais {
         document.write("<p>" + this.finishingLine + "</p>");
     }
 }
+
+var pais = new Pais("Qatar", "Doha", 3063000);
+pais.fillAtributes();

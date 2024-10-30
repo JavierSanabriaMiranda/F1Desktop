@@ -12,7 +12,10 @@
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+
+    <script src="js\memoria.js"></script>
 </head>
 
 <body>
@@ -31,4 +34,15 @@
         </nav>
     </header>
 
-    <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a> >> Juego de Memoria</p>
+    <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a> >>
+        Juego de Memoria</p>
+
+    <section>
+        <h2>Juego de Memoria</h2>
+        <script>
+            var game = new Memoria();
+            game.instanceCards();
+            game.createElements();
+        </script>
+    </section>
+</body>

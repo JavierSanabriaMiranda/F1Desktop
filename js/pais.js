@@ -22,12 +22,12 @@ class Pais {
     }
 
     getSecondaryInfo() {
-        return "<ul><li>" + this.circuit + "</li><li>" + this.population+ "</li><li>" + this.government +
-            "</li><li>" + this.religion + "</li>";
+        return "<ul><li>Circuito: " + this.circuit + "</li><li>Población: " + this.population+ "</li><li>Tipo de Gobierno: " 
+        + this.government + "</li><li>Religión Mayoritaria: " + this.religion + "</li></ul>";
     }
 
     writeFinishingLineCoords() {
-        document.write("<p>" + this.finishingLine + "</p>");
+        document.write("<p>Coordenadas Línea de Meta: " + this.finishingLine + "</p>");
     }
 }
 

@@ -1,43 +1,44 @@
  /* Javier Sanabria Miranda UO293758 */
 
  /* Colores:
-    background: #EFFAFD
-    body-color: #0000ff
-    titles-color: #A0006D
+    background: #FFFFFF
+    body-color: #f2c75c
+    titles-color: #f2c75c
+    contrast-color: #f2c75c
  */
 
  
  /* Especificidad = 001 */
  body { 
     font-family: Georgia, Times, "Times New Roman", serif;
-    background-color: #EFFAFD;
-    color: #0000ff;
+    background-color: #FFFF;
+    color: #000000;
 } 
 
 /* Especificidad = 001 */
 /* No es necesario establecer un color de primer plano puesto que ya lo hereda de body */
 header {
-    background-color: #0000ff;
+    background-color: #1b365d;
 }
 
 /* Especificidad = 002 */
 /* No es necesario establecer un color de fondo puesto que ya lo hereda de body */
 h1 a, nav a {
-    color: #EFFAFD;
+    color: #f2c75c;
     text-decoration-line: none;
 }
 
 /* Especificidad = 001 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 h2 {
-    color: #A0006D;
+    color: #1d4289;
     font-weight: 800;
 }
 
 /* Especificidad = 001 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 h3 {
-    color: #A0006D;
+    color: #1d4289;
 }
 
 /* ----- Estilo del "Estás aqui: " ----- */
@@ -45,7 +46,7 @@ h3 {
 /* Especificidad = 012 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 body > p:first-of-type, body > a:first-of-type {
-    color: #0000ff;
+    color: #1b365d;
     font-size: 1.4vmin;
 }
 
@@ -55,19 +56,21 @@ body > p:first-of-type, body > a:first-of-type {
 /* Especificidad 021 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 a[href ^= "http"]:link, a[href ^= "http"]:visited  {
-    color:#0000ff;
+    color:#1b365d;
 }
 
 /* Especificidad 021 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 a[href ^= "http"]:hover {
-    color:#A0006D;
+    color:#f2c75c;
 }
 
 /* Especificidad 011 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 a[class = "active"] {
-    color:#ACFF75;
+    color:#f2c75c;
+    border-color: #f2c75c;
+    text-decoration-line: underline;
 }
 
 /* ----- Estilo de Listas (marcadores de listas) ----- */
@@ -80,7 +83,7 @@ ul {
 /* Especificidad 002 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 li::marker {
-    color: #A0006D;
+    color: #1b365d;
 }
 
 /* Especificidad 001 */
@@ -98,8 +101,9 @@ ol > li::marker {
 /* Especificidad 001 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 dt {
-    color: #A0006D;
+    color: #1b365d;
     font-weight: bold;
+    text-decoration-line: underline;
 }
 
 /* ----- Estilo para las Tablas ----- */
@@ -110,35 +114,35 @@ table {
 
 /* Especificidad 001 */
 tr {
-    background-color: #0000ff;
+    background-color: #1b365d;
     border-style: solid;
 }
 
 /* Especificidad 001 */
-/* No es necesario establecer un color puesto que lo hereda de body */
 th {
-    background-color: #0000ff;
-    color: #CAEFF7;
+    background-color: #1b365d;
+    color: #f2c75c;
     border-style: solid;
     width: 30rem;
+    border-color: #1b365d;
 }
 
 /* Especificidad 001 */
 /* No es necesario establecer un color puesto que lo hereda de body */
 td {
     text-align: center;
-    background-color: #EFFAFD;
+    background-color: white;
     border-style: solid;
-    border-color: #0000ff;
+    border-color: #1b365d;
 }
 
 /* Especificidad 001 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
 caption {
     font-size: large;
-    color: #A0006D;
+    color: #f2c75c;
     font-weight: bold;
-    background-color: #EFFAFD;
+    background-color: #1b365d;
 }
 
 /* ----- Multimedia ----- */
@@ -159,12 +163,12 @@ caption {
 
 /* Especificidad 013 */
 main nav:first-of-type > a {
-    background-color: #0000ff;
-    color: #EFFAFD;
+    background-color: #1b365d;
+    color: #f2c75c;
 }
 
 /* No hace falta establacer color de texto pues lo hereda de main nav:first-of-type > a */
 /* Especificidad 023 */
 main nav:first-of-type > a:hover {
-    background-color: #2D2DF0;
+    background-color: #254C83;
 }

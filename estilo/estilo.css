@@ -42,9 +42,9 @@ h3 {
 
 /* ----- Estilo del "Estás aqui: " ----- */
 
-/* Especificidad = 002 */
+/* Especificidad = 012 */
 /* No es necesario establecer un color de fondo puesto que lo hereda de body */
-body > p, body > a {
+body > p:first-of-type, body > a:first-of-type {
     color: #0000ff;
     font-size: 1.4vmin;
 }
@@ -155,3 +155,16 @@ caption {
     }
 }
 
+/* ----- Estilo de Navegación en el main ----- */
+
+/* Especificidad 013 */
+main nav:first-of-type > a {
+    background-color: #0000ff;
+    color: #EFFAFD;
+}
+
+/* No hace falta establacer color de texto pues lo hereda de main nav:first-of-type > a */
+/* Especificidad 023 */
+main nav:first-of-type > a:hover {
+    background-color: #2D2DF0;
+}

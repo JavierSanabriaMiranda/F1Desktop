@@ -3,7 +3,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 header a {
@@ -53,4 +52,19 @@ nav {
 
 body>p, main, h2, aside {
     padding: 0vw 3vw
+}
+
+/* Especificidad 012 */
+main nav:first-of-type {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1%
+}
+
+/* Especificidad 013 */
+main nav:first-of-type > a {
+    padding: 3%;
+    
 }

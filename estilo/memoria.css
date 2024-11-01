@@ -23,6 +23,7 @@
  }
 
  /* Especificidad 013 */
+ /* Tarjetas */
  body>section:first-of-type>article {
     width: 20%;
     height: 14em;
@@ -34,12 +35,8 @@
     box-shadow: 1% 1% 1% rgba(0, 0, 0, .3);
  }
 
- /* Especificidad 014 */
- body>section:first-of-type>article>h3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+ body>section:first-of-type>article[data-state=flip] {
+    transform: rotateY(180deg);
  }
 
  /* Especificidad 014 */
@@ -52,4 +49,17 @@
     border-radius: 5%;
     background: #1C7CCC;
     backface-visibility: hidden;
+ }
+
+ /* Especificidad 014 */
+ body>section:first-of-type>article>h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ }
+
+ /* Especificidad 014 */
+ body>section:first-of-type>article>img {
+    transform: rotateY(180deg);
  }

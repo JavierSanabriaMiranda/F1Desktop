@@ -5,6 +5,11 @@ class Memoria {
         this.lockBoard = false;
         this.firstCard = null;
         this.secondCard = null;
+
+        this.instanceCards();
+        this.shuffleElements();
+        this.createElements();
+        this.addEventListeners();
     }
 
     instanceCards() {
@@ -98,12 +103,32 @@ class Memoria {
 
     }
 
+    flipCard(game) {
+        if (this.getAttribute("data-state") === "revealed") {
+            return;
+        } if (game.lockBoard) {
+            return;
+        } if (game.firstCard === this) {
+            return;
+        }
+        
+        this.setAttribute("data-state", "flip")
+        if (!game.hasFlippedCard) {
+            game.hasFlippedCard = true
+            game.firstCard = this
+        } else {
+            game.secondCard = this
+            game.checkForMatch()
+        }
+    }
+
     createElements() {
         for (let i = 0; i < this.elements.cards.length; i++) {
             var card = this.elements.cards[i];
 
             var article = document.createElement("article");
             article.setAttribute("data-element", card.element);
+            article.setAttribute("data-state", "flip")
 
             var h3 = document.createElement("h3");
             var h3content = document.createTextNode("Tarjeta de memoria");
@@ -121,6 +146,12 @@ class Memoria {
     }
 
     addEventListeners() {
-        
+        for (let i = 0; i < this.elements.cards.length; i++) {
+            var card = this.elements.cards[i];
+
+            var article = document.querySelector("article[data-element=" + card.element + "]");
+            this.flipCard.bind(article, this);
+            article.onclick = this.flipCard;
+        }
     }
 }

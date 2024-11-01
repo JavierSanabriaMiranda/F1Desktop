@@ -82,6 +82,9 @@ class Memoria {
 
     unflipCards() {
         this.lockBoard = true;
+        this.firstCard.setAttribute("data-state", "hidden")
+        this.secondCard.setAttribute("data-state", "hidden")
+
         setTimeout(() => this.resetBoard(), 1000);
     }
 
@@ -93,17 +96,20 @@ class Memoria {
     }
 
     checkForMatch() {
-        if (this.firstCard === this.secondCard)
+        if (this.firstCard.getAttribute("data-element") === this.secondCard.getAttribute("data-element"))
             this.disableCards();
         else
             this.unflipCards();
     }
 
     disableCards() {
-
+        this.firstCard.setAttribute("data-state", "revealed")
+        this.secondCard.setAttribute("data-state", "revealed")
+        this.resetBoard();
     }
 
     flipCard(game) {
+        console.log(game)
         if (this.getAttribute("data-state") === "revealed") {
             return;
         } if (game.lockBoard) {
@@ -111,15 +117,16 @@ class Memoria {
         } if (game.firstCard === this) {
             return;
         }
-        
+
         this.setAttribute("data-state", "flip")
         if (!game.hasFlippedCard) {
             game.hasFlippedCard = true
             game.firstCard = this
         } else {
             game.secondCard = this
-            game.checkForMatch()
+            setTimeout(() => game.checkForMatch(), 1000);
         }
+        console.log(game)
     }
 
     createElements() {
@@ -128,10 +135,11 @@ class Memoria {
 
             var article = document.createElement("article");
             article.setAttribute("data-element", card.element);
-            article.setAttribute("data-state", "flip")
+            article.setAttribute("data-state", "hidden")
 
             var h3 = document.createElement("h3");
-            var h3content = document.createTextNode("Tarjeta de memoria");
+            var h3content = document.createTextNode("Memory Card");
+            h3.appendChild(h3content);
 
             var img = document.createElement("img");
             img.setAttribute("src", card.source);
@@ -146,12 +154,11 @@ class Memoria {
     }
 
     addEventListeners() {
-        for (let i = 0; i < this.elements.cards.length; i++) {
-            var card = this.elements.cards[i];
+        var game = this
+        var articles = document.querySelectorAll("body>section:first-of-type>article");
 
-            var article = document.querySelector("article[data-element=" + card.element + "]");
-            this.flipCard.bind(article, this);
-            article.onclick = this.flipCard;
+        for (let article of articles) {
+            article.onclick = this.flipCard.bind(article, game)
         }
     }
 }

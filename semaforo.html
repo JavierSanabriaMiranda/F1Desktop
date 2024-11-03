@@ -4,18 +4,18 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>Juego Memoria</title>
+    <title>Juego de Tiempo de Reacción</title>
     <meta name="author" content="Javier Sanabria Miranda" />
-    <meta name="description" content="Juego de Memoria de F1" />
-    <meta name="keywords" content="F1 Desktop, Memoria, Juego" />
+    <meta name="description" content="Juego de Tiempo de Reacción de F1" />
+    <meta name="keywords" content="F1 Desktop, Semáforo, Juego" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/semaforo_grid.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
 
-    <script src="js/memoria.js"></script>
+    <script src="js/semaforo.js"></script>
 </head>
 
 <body>
@@ -35,12 +35,11 @@
     </header>
 
     <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a> >>
-        Juego de Memoria</p>
+        Juego de Tiempo de Reacción</p>
 
-    <section>
-        <h2>Juego de Memoria</h2>
+    <main>
         <script>
-            var game = new Memoria();
+            var game = new Semaforo()
         </script>
-    </section>
+    </main>
 </body>

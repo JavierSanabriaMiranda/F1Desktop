@@ -21,6 +21,7 @@ body>main:first-of-type>h2 {
 }
 
 /* Especificidad 013 */
+/* No hace falta establecer un color de primer plano pues no hay texto en este componente */
 body>main:first-of-type>div {
     background-color: #000A;
     border: 1em solid black;

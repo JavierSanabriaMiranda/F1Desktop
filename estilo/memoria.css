@@ -33,7 +33,7 @@
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform .5s;
-    box-shadow: 1% 1% 1% rgba(0, 0, 0, .3);
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, .3);
  }
 
   /* Especificidad 023 */
@@ -43,6 +43,8 @@
  }
 
  /* Especificidad 014 */
+ /* No es necesario establecer un color de primer plano
+ pues ya lo hereda de body*/
  body>section:first-of-type>article>h3,
  body>section:first-of-type>article>img {
     margin: 0;

@@ -82,10 +82,14 @@ class Memoria {
 
     unflipCards() {
         this.lockBoard = true;
-        this.firstCard.setAttribute("data-state", "hidden")
-        this.secondCard.setAttribute("data-state", "hidden")
 
-        setTimeout(() => this.resetBoard(), 1000);
+        setTimeout(() => {
+            this.firstCard.setAttribute("data-state", "hidden")
+            this.secondCard.setAttribute("data-state", "hidden")
+
+            this.resetBoard();
+        }, 1000)
+
     }
 
     resetBoard() {
@@ -124,7 +128,7 @@ class Memoria {
             game.firstCard = this
         } else {
             game.secondCard = this
-            setTimeout(() => game.checkForMatch(), 1000);
+            game.checkForMatch()
         }
         console.log(game)
     }

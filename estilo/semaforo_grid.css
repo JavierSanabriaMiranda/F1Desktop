@@ -94,7 +94,7 @@ main.load>div:last-of-type {
     to {background-color: #000A;}
 }
 
-main.load>div {
+main.load.unload>div {
     animation-name: turnOff;
     animation-duration: 0.1s;
     animation-fill-mode: forwards;

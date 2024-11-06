@@ -130,7 +130,6 @@ class Memoria {
             game.secondCard = this
             game.checkForMatch()
         }
-        console.log(game)
     }
 
     createElements() {

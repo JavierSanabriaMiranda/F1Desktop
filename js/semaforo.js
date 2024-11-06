@@ -38,7 +38,7 @@ class Semaforo {
     initSequence() {
         this.difficulty = this.levels[Math.floor(Math.random() * this.levels.length)];
         var main = document.querySelector("body>main:first-of-type")
-        main.className = "load"
+        main.classList.add("load")
 
         var p = document.querySelector("body>main>p")
         if (p != null)
@@ -59,7 +59,7 @@ class Semaforo {
         var btGetTime = document.querySelector("body>main:first-of-type>button:last-of-type")
         btGetTime.disabled = false
         var main = document.querySelector("body>main:first-of-type")
-        main.className = "unload"
+        main.classList.add("unload")
 
         btGetTime.onclick = this.stopReaction.bind(this)
     }
@@ -77,6 +77,7 @@ class Semaforo {
         main.appendChild(p);
         
         main.classList.remove("unload")
+        main.classList.remove("load")
 
         var btGetTime = document.querySelector("body>main:first-of-type>button:last-of-type")
         btGetTime.disabled = true

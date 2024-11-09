@@ -53,8 +53,16 @@ body>main:first-of-type>p {
 
 
 @keyframes turnOn {
-    from {background-color: #000A;}
-    to {background-color: red;}
+
+    /* No hace falta establecer un color de primer plano pues no hay texto en el componente que usa la animación */
+    from {
+        background-color: #000A;
+    }
+
+    /* No hace falta establecer un color de primer plano pues no hay texto en el componente que usa la animación */
+    to {
+        background-color: red;
+    }
 }
 
 /* Especificidad 022 */
@@ -90,8 +98,16 @@ main.load>div:last-of-type {
 }
 
 @keyframes turnOff {
-    from {background-color: red;}
-    to {background-color: #000A;}
+
+    /* No hace falta establecer un color de primer plano pues no hay texto en el componente que usa la animación */
+    from {
+        background-color: red;
+    }
+
+    /* No hace falta establecer un color de primer plano pues no hay texto en el componente que usa la animación */
+    to {
+        background-color: #000A;
+    }
 }
 
 main.load.unload>div {
@@ -99,4 +115,34 @@ main.load.unload>div {
     animation-duration: 0.1s;
     animation-fill-mode: forwards;
     animation-delay: 1.5s;
+}
+
+@media only screen and (max-width: 900px) {
+
+    /* Especificidad 012 */
+    body>main:first-of-type {
+        width: auto;
+    }
+
+    /* Especificidad 013 */
+    /* No hace falta establecer un color de primer plano pues no hay texto en este componente */
+    body>main:first-of-type>div {
+        border: 0.75em solid black;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    /* Especificidad 012 */
+    body>main:first-of-type {
+        width: auto;
+        gap: 1%;
+    }
+
+    /* Especificidad 013 */
+    /* No hace falta establecer un color de primer plano pues no hay texto en este componente */
+    body>main:first-of-type>div {
+        width: auto;
+        border: 0.5em solid black;
+    }
 }

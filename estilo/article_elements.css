@@ -1,0 +1,57 @@
+/* Especificidad 001 */
+article {
+    display: grid;
+    max-height: 20em;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    margin: 1% 40%;
+    border-radius: 5%;
+    justify-items: center;
+    align-items: center;
+    background-color: #1b365d;
+    color: #f2c75c;
+
+}
+
+/* Especificidad 012 y 002 */
+article>h3:first-of-type,
+article>p {
+    color: #f2c75c;
+}
+
+@media only screen and (max-width: 1300px) {
+
+    /* Especificidad 001 */
+    article {
+        margin: 1% 28%;
+        row-gap: 0em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* Especificidad 001 */
+    article {
+        margin: 1% 20%;
+        row-gap: 0em;
+    }
+}
+
+
+@media only screen and (max-width: 430px) {
+
+    /* Especificidad 001 */
+    article {
+        margin: 1% 5%;
+    }
+
+    /* Especificidad 002 */
+    article>p {
+        font-size: small;
+    }
+
+    /* Especificidad 012 */
+    article>h3:first-of-type {
+        font-size: medium;
+    }
+}

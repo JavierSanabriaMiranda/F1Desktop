@@ -8,24 +8,36 @@ class Fondo {
     }
 
     getImage() {
-        (function () {
-            var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-            $.getJSON(flickrAPI,
-                {
-                    tags: [this.countryName, this.capitalName, this.circuitName],
-                    tagmode: "all",
-                    format: "json"
-                })
-                .done(function (data) {
-                    $.each(data.items, function (i, item) {
-                        $("body").css("background-image", url(item.media.m))
-                        if (i === 1) {
-                            return false;
-                        }
-                    });
+        var self = this
+
+        var apiKey = "3caa7263ba15295bb518ee4864d92916"
+        var API = "https://api.flickr.com/services/rest/?method=flickr.photos.search"
+        $.getJSON(API,
+            {
+                api_key: apiKey,
+                text: "F1 " + self.countryName + " " + self.circuitName,
+                format: "json",
+                per_page: 1,
+                nojsoncallback: 1,
+            })
+            .done(function (data) {
+                console.log(data)
+                if (data.photos.photo.length > 0) {
+                    var photo = data.photos.photo[0];
+                    var imageUrl = "https://live.staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_b.jpg"
+                    $("body").css({
+                        "background-image": "url(" + imageUrl + ")", 
+                        "background-size": "cover",
+                        "background-repeat": "no-repeat"
                 });
-        })();
+
+                }
+
+            })
+            .fail(function (error) {
+                console.error("Error en la solicitud:", error);
+            });
     }
-
-
 }
+
+var fondo = new Fondo("Qatar", "Doha", "Losail")

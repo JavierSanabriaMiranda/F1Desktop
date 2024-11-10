@@ -1,0 +1,49 @@
+/* Especificidad 001 */
+section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);;
+    width: 100%;
+}
+
+/* Especificidad 002 */
+section>article {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 3%;
+    padding: 4%;
+    border-radius: 5%;
+    background-color: #1b365d;
+}
+/*
+section>article {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 3%;
+    padding: 4%;
+    border-style: solid;
+    border-radius: 5%;
+    border-width: 0.3em;
+    border-color: #1b365d;
+    background-color: #F5F5F5;
+} 
+    */
+
+/* Especificidad 003 */
+section > article > h3 {
+    color: #f2c75c;
+    font-weight: bold;
+    text-decoration-line: underline;
+}
+
+/* Especificidad 003 */
+section > article > p, section > article > h4 {
+    color: white;
+}
+
+/* Especificidad 002 */
+main > button {
+    font-size: medium;
+    border-color: #1b365d;
+}

@@ -21,7 +21,6 @@ class Fondo {
                 nojsoncallback: 1,
             })
             .done(function (data) {
-                console.log(data)
                 if (data.photos.photo.length > 0) {
                     var photo = data.photos.photo[0];
                     var imageUrl = "https://live.staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_b.jpg"

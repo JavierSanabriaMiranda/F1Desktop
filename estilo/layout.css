@@ -7,6 +7,7 @@ header {
     justify-content: space-between;
 }
 
+/* Especificidad 002 */
 header a {
     padding: 0vw 2vw;
 }
@@ -27,6 +28,7 @@ nav {
 /* Media Querie para tablets */
 @media only screen and (max-width: 1024px) {
     
+    /* Especificidad 001 */
     header {
         flex-direction: column;
     }
@@ -52,6 +54,7 @@ nav {
     }
 }
 
+/* Especificidad 002 y 001 el resto */
 body>p, main, h2, aside {
     padding: 0vw 3vw
 }

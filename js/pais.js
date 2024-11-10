@@ -60,6 +60,9 @@ class Pais {
                         var symbol = $(this).find('symbol').attr("var");
                         var precipitation = $(this).find('precipitation').attr("value");
 
+                        if (precipitation === undefined)
+                            precipitation = "No disponible"
+
                         var weather = `
                         <article>
                             <h3>${day} - ${initHour}:00-${finalHour}:00</h3>

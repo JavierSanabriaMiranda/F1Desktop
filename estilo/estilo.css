@@ -7,168 +7,174 @@
     contrast-color: #f2c75c
  */
 
- 
+
  /* Especificidad = 001 */
- body { 
-    font-family: Georgia, Times, "Times New Roman", serif;
-    background-color: #FFFF;
-    color: #000000;
-} 
+ body {
+     font-family: Georgia, Times, "Times New Roman", serif;
+     background-color: #FFFF;
+     color: #000000;
+ }
 
-/* Especificidad = 001 */
-/* No es necesario establecer un color de primer plano puesto que ya lo hereda de body */
-header {
-    background-color: #1b365d;
-}
+ /* Especificidad = 001 */
+ /* No es necesario establecer un color de primer plano puesto que ya lo hereda de body */
+ header {
+     background-color: #1b365d;
+ }
 
-/* Especificidad = 002 */
-/* No es necesario establecer un color de fondo puesto que ya lo hereda de body */
-h1 a, nav a {
-    color: #f2c75c;
-    text-decoration-line: none;
-}
+ /* Especificidad = 002 */
+ /* No es necesario establecer un color de fondo puesto que ya lo hereda de body */
+ h1 a,
+ nav a {
+     color: #f2c75c;
+     text-decoration-line: none;
+ }
 
-/* Especificidad = 001 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-h2 {
-    color: #1d4289;
-    font-weight: 800;
-}
+ /* Especificidad = 001 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ h2 {
+     color: #1d4289;
+     font-weight: 800;
+ }
 
-/* Especificidad = 001 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-h3 {
-    color: #1d4289;
-}
+ /* Especificidad = 001 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ h3 {
+     color: #1d4289;
+ }
 
-/* ----- Estilo del "Estás aqui: " ----- */
+ /* ----- Estilo del "Estás aqui: " ----- */
 
-/* Especificidad = 012 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-body > p:first-of-type, body > a:first-of-type {
-    color: #1b365d;
-    font-size: 1.4vmin;
-}
+ /* Especificidad = 012 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ body>p:first-of-type,
+ body>a:first-of-type {
+     color: #1b365d;
+     font-size: 1.4vmin;
+ }
 
 
-/* ----- Estilo de Enlaces Externos ----- */
+ /* ----- Estilo de Enlaces Externos ----- */
 
-/* Especificidad 021 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-a[href ^= "http"]:link, a[href ^= "http"]:visited  {
-    color:#1b365d;
-}
+ /* Especificidad 021 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ a[href ^="http"]:link,
+ a[href ^="http"]:visited {
+     color: #1b365d;
+ }
 
-/* Especificidad 021 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-a[href ^= "http"]:hover {
-    color:#f2c75c;
-}
+ /* Especificidad 021 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ a[href ^="http"]:hover {
+     color: #f2c75c;
+ }
 
-/* Especificidad 011 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-a[class = "active"] {
-    color:#f2c75c;
-    border-color: #f2c75c;
-    text-decoration-line: underline;
-}
+ /* Especificidad 011 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ a[class="active"] {
+     color: #f2c75c;
+     border-color: #f2c75c;
+     text-decoration-line: underline;
+ }
 
-/* ----- Estilo de Listas (marcadores de listas) ----- */
+ /* ----- Estilo de Listas (marcadores de listas) ----- */
 
-/* Especificidad 001 */
-ul {
-    list-style-type: symbols(cyclic '○' '●');
-}
+ /* Especificidad 001 */
+ ul {
+     list-style-type: symbols(cyclic '○' '●');
+ }
 
-/* Especificidad 002 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-li::marker {
-    color: #1b365d;
-}
+ /* Especificidad 002 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ li::marker {
+     color: #1b365d;
+ }
 
-/* Especificidad 001 */
-li {
-    margin-left: 0.1vw;
-}
+ /* Especificidad 001 */
+ li {
+     margin-left: 0.1vw;
+ }
 
-/* Especificidad 003 */
-ol > li::marker { 
-    content: counters(list-item,'.') '.'; 
-}
+ /* Especificidad 003 */
+ ol>li::marker {
+     content: counters(list-item, '.') '.';
+ }
 
-/* ----- Estilo de Listas de Definición ----- */
+ /* ----- Estilo de Listas de Definición ----- */
 
-/* Especificidad 001 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-dt {
-    color: #1b365d;
-    font-weight: bold;
-    text-decoration-line: underline;
-}
+ /* Especificidad 001 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ dt {
+     color: #1b365d;
+     font-weight: bold;
+     text-decoration-line: underline;
+ }
 
-/* ----- Estilo para las Tablas ----- */
+ /* ----- Estilo para las Tablas ----- */
 
-table {
-    width: 50vw;
-}
+ /* Especificidad 001 */
+ table {
+     width: 50vw;
+ }
 
-/* Especificidad 001 */
-tr {
-    background-color: #1b365d;
-    border-style: solid;
-}
+ /* Especificidad 001 */
+ tr {
+     background-color: #1b365d;
+     border-style: solid;
+ }
 
-/* Especificidad 001 */
-th {
-    background-color: #1b365d;
-    color: #f2c75c;
-    border-style: solid;
-    width: 30rem;
-    border-color: #183052;
-}
+ /* Especificidad 001 */
+ th {
+     background-color: #1b365d;
+     color: #f2c75c;
+     border-style: solid;
+     width: 30rem;
+     border-color: #183052;
+ }
 
-/* Especificidad 001 */
-/* No es necesario establecer un color puesto que lo hereda de body */
-td {
-    text-align: center;
-    background-color: white;
-    border-style: solid;
-    border-color: #1b365d;
-}
+ /* Especificidad 001 */
+ /* No es necesario establecer un color puesto que lo hereda de body */
+ td {
+     text-align: center;
+     background-color: white;
+     border-style: solid;
+     border-color: #1b365d;
+ }
 
-/* Especificidad 001 */
-/* No es necesario establecer un color de fondo puesto que lo hereda de body */
-caption {
-    font-size: large;
-    color: #f2c75c;
-    font-weight: bold;
-    background-color: #1b365d;
-}
+ /* Especificidad 001 */
+ /* No es necesario establecer un color de fondo puesto que lo hereda de body */
+ caption {
+     font-size: large;
+     color: #f2c75c;
+     font-weight: bold;
+     background-color: #1b365d;
+ }
 
-/* ----- Multimedia ----- */
+ /* ----- Multimedia ----- */
 
-@media only screen and (max-width: 900px) {
-    /* Especificidad 001 */
-    video {
-        width:80%;
-        height:auto;
-    }
-    /* Especificidad 001 */
-    audio {
-        width: 60%;
-    }
-}
+ @media only screen and (max-width: 900px) {
 
-/* ----- Estilo de Navegación en el main ----- */
+     /* Especificidad 001 */
+     video {
+         width: 80%;
+         height: auto;
+     }
 
-/* Especificidad 013 */
-main nav:first-of-type > a {
-    background-color: #1b365d;
-    color: #f2c75c;
-}
+     /* Especificidad 001 */
+     audio {
+         width: 60%;
+     }
+ }
 
-/* No hace falta establacer color de texto pues lo hereda de main nav:first-of-type > a */
-/* Especificidad 023 */
-main nav:first-of-type > a:hover {
-    background-color: #254C83;
-}
+ /* ----- Estilo de Navegación en el main ----- */
+
+ /* Especificidad 013 */
+ main nav:first-of-type>a {
+     background-color: #1b365d;
+     color: #f2c75c;
+ }
+
+ /* No hace falta establacer color de texto pues lo hereda de main nav:first-of-type > a */
+ /* Especificidad 023 */
+ main nav:first-of-type>a:hover {
+     background-color: #254C83;
+ }

@@ -5,6 +5,14 @@ main > section {
     width: 100%;
 }
 
+/* Especificidad 003 */
+main > section > h2 {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    text-decoration-line: underline;
+}
+
 /* Especificidad 001 */
 article {
     display: grid;
@@ -21,8 +29,8 @@ article {
 }
 
 /* Especificidad 012 y 002 */
-article>h3:first-of-type,
-article>p {
+/* No hace falta especificar color de fondo pues lo hereda de article */
+article>h3:first-of-type {
     color: #f2c75c;
 }
 

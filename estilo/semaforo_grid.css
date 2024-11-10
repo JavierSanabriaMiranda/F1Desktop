@@ -110,6 +110,7 @@ main.load>div:last-of-type {
     }
 }
 
+/* Especificidad 022 */
 main.load.unload>div {
     animation-name: turnOff;
     animation-duration: 0.1s;

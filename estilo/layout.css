@@ -29,6 +29,7 @@ nav {
 @media only screen and (max-width: 1024px) {
     
     /* Especificidad 001 */
+    /* Se establece que el contenido se muestre en vertical */
     header {
         flex-direction: column;
     }
@@ -49,8 +50,9 @@ nav {
     }
 
     /* Especificidad = 002 */
+    /* Se ocultan las migas */
     body>p{
-        display: none; /* Oculta las migas */
+        display: none;
     }
 }
 

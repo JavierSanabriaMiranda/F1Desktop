@@ -121,12 +121,14 @@ main.load.unload>div {
 @media only screen and (max-width: 900px) {
 
     /* Especificidad 012 */
+    /* Se redefine el ancho del main */
     body>main:first-of-type {
         width: auto;
     }
 
     /* Especificidad 013 */
     /* No hace falta establecer un color de primer plano pues no hay texto en este componente */
+    /* Se redefine el borde de las luces */
     body>main:first-of-type>div {
         border: 0.75em solid black;
     }
@@ -135,6 +137,7 @@ main.load.unload>div {
 @media only screen and (max-width: 400px) {
 
     /* Especificidad 012 */
+    /* Se redefine el ancho del main y el espacio entre luces */
     body>main:first-of-type {
         width: auto;
         gap: 1%;
@@ -142,6 +145,7 @@ main.load.unload>div {
 
     /* Especificidad 013 */
     /* No hace falta establecer un color de primer plano pues no hay texto en este componente */
+    /* Se redefine el borde de las luces y su ancho */
     body>main:first-of-type>div {
         width: auto;
         border: 0.5em solid black;

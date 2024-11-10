@@ -154,12 +154,14 @@
  @media only screen and (max-width: 900px) {
 
      /* Especificidad 001 */
+     /* Se establece que el video se adapte al tamaño de la pantalla */
      video {
          width: 80%;
          height: auto;
      }
 
      /* Especificidad 001 */
+     /* Se establece que el audio se adapte al tamaño de la pantalla */
      audio {
          width: 60%;
      }

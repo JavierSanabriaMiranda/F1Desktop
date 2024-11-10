@@ -16,6 +16,7 @@ main > section > h2 {
 @media only screen and (max-width: 1300px) {
 
     /* Especificidad 002 */
+    /* Se cambia el numero de columnas */
     main > section {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -24,6 +25,7 @@ main > section > h2 {
 @media only screen and (max-width: 900px) {
 
     /* Especificidad 002 */
+    /* Se cambia el numero de columnas */
     main > section {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -32,6 +34,7 @@ main > section > h2 {
 @media only screen and (max-width: 600px) {
 
     /* Especificidad 002 */
+    /* Se cambia el numero de columnas */
     main > section {
         grid-template-columns: 1fr;
     }

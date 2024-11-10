@@ -37,6 +37,7 @@ article>h3:first-of-type {
 @media only screen and (max-width: 800px) {
 
     /* Especificidad 002 */
+    /* Se cambia la cantidad de columnas del grid layout */
     main > section {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -46,21 +47,25 @@ article>h3:first-of-type {
 @media only screen and (max-width: 530px) {
 
     /* Especificidad 002 */
+    /* Se cambia la cantidad de columnas del grid layout */
     main > section {
         grid-template-columns: 1fr;
     }
 
     /* Especificidad 001 */
+    /* Se cambia aumenta el margen horizontal */
     article {
         margin: 1% 5%;
     }
 
     /* Especificidad 002 */
+    /* Se cambia el tamaño de letra */
     article>p {
         font-size: small;
     }
 
     /* Especificidad 012 */
+    /* Se cambia el tamaño de letra */
     article>h3:first-of-type {
         font-size: medium;
     }

@@ -73,18 +73,21 @@
  @media only screen and (max-width: 900px) {
 
     /* Especificidad 012 */
+    /* Se redefine el margen del contenedor de tarjetas */
     body>section:first-of-type {
        margin: 0%;
     }
 
     /* Especificidad 014 */
     /* No es necesario establecer un color de primer plano pues ya lo hereda de body*/
+    /* Se redefine el tamaño de la letra del h3 */
     body>section:first-of-type>article>h3 {
        font-size: medium;
     }
 
     /* Especificidad 013 */
     /* Tarjetas */
+    /* Se redefine el alto de las tarjetas */
     body>section:first-of-type>article {
        height: 10em;
     }
@@ -94,6 +97,7 @@
 
     /* Especificidad 014 */
     /* No es necesario establecer un color de primer plano pues ya lo hereda de body*/
+    /* Se redefine el tamaño de la letra del h3 */
     body>section:first-of-type>article>h3 {
        font-size: x-small;
     }

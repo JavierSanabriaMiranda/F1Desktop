@@ -1,8 +1,32 @@
-/* Especificidad 001 */
-section {
+/* Especificidad 002 */
+main > section {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);;
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
+}
+
+@media only screen and (max-width: 1300px) {
+
+    /* Especificidad 002 */
+    main > section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    /* Especificidad 002 */
+    main > section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* Especificidad 002 */
+    main > section {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Especificidad 002 */
@@ -47,3 +71,4 @@ main > button {
     font-size: medium;
     border-color: #1b365d;
 }
+

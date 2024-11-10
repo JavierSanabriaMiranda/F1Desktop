@@ -5,7 +5,7 @@
 class Agenda {
 
     constructor() {
-        this.url = "http://ergast.com/api/f1/current.json"
+        this.url = "https://ergast.com/api/f1/current.json"
     }
 
     setButtonAction() {

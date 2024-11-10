@@ -70,7 +70,7 @@ class Pais {
                         </article>
                         `
 
-                        $("main").append(weather)
+                        $("section:first").append(weather)
                     }
                 })
             }

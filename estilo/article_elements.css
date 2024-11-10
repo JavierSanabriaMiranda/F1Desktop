@@ -1,10 +1,17 @@
+/* Especificidad 002 */
+main > section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+}
+
 /* Especificidad 001 */
 article {
     display: grid;
     max-height: 20em;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr;
-    margin: 1% 40%;
+    margin: 1% 2%;
     border-radius: 5%;
     justify-items: center;
     align-items: center;
@@ -19,26 +26,21 @@ article>p {
     color: #f2c75c;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 800px) {
 
-    /* Especificidad 001 */
-    article {
-        margin: 1% 28%;
-        row-gap: 0em;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-
-    /* Especificidad 001 */
-    article {
-        margin: 1% 20%;
-        row-gap: 0em;
+    /* Especificidad 002 */
+    main > section {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 530px) {
+
+    /* Especificidad 002 */
+    main > section {
+        grid-template-columns: 1fr;
+    }
 
     /* Especificidad 001 */
     article {

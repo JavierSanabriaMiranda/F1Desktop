@@ -66,7 +66,7 @@ class Pais {
                         var weather = `
                         <article>
                             <h3>${day} - ${initHour}:00-${finalHour}:00</h3>
-                            <img src=http://openweathermap.org/img/wn/${symbol}@2x.png />
+                            <img src=http://openweathermap.org/img/wn/${symbol}@2x.png alt=Tiempo el ${day} />
                             <p>Temperatura: ${temperatureMin}/${temperatureMax}ºC</p>
                             <p>Humedad: ${humidity}%</p>
                             <p>Lluvias: ${precipitation}</p>

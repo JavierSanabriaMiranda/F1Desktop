@@ -23,9 +23,9 @@ article {
     border-radius: 5%;
     justify-items: center;
     align-items: center;
+    text-align: center;
     background-color: #1b365d;
     color: #f2c75c;
-
 }
 
 /* Especificidad 012 y 002 */

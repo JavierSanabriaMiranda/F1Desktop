@@ -67,17 +67,18 @@ class Semaforo {
     stopReaction() {
         this.clic_moment = new Date()
         var timeDifference = this.clic_moment.getTime() - this.unload_moment.getTime();
-        timeDifference = timeDifference.toFixed(3)
+        timeDifference = timeDifference.toFixed(3)/1000
 
         var p = document.createElement("p")
-        var pReactionTime = document.createTextNode("Tiempo de reacción: " + timeDifference + "ms")
+        var pReactionTime = document.createTextNode("Tiempo de reacción: " + timeDifference + "s")
         p.appendChild(pReactionTime)
 
         var main = document.querySelector("body>main:first-of-type")
         main.appendChild(p);
         
-        main.classList.remove("unload")
         main.classList.remove("load")
+        main.classList.remove("unload")
+        
 
         var btGetTime = document.querySelector("body>main:first-of-type>button:last-of-type")
         btGetTime.disabled = true

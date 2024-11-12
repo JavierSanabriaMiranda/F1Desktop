@@ -33,8 +33,7 @@ section > button {
 /* Especificidad 001 */
 section > article {
     display: grid;
-    max-height: 20em;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
     grid-template-columns: 1fr;
     margin: 1% 2%;
     border-radius: 5%;

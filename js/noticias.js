@@ -7,6 +7,22 @@ class Noticias {
             this.apiFile = false;
     }
 
+    getNewActionFromUserText() {
+        var textAreas = document.getElementsByTagName("textarea")
+        var titleArea = textAreas[0]
+        var contentArea = textAreas[1]
+        var authorArea = textAreas[2]
+
+        if (titleArea.value.trim().length === 0 || contentArea.value.trim().length === 0 || authorArea.value.trim().length === 0) {
+            alert("No se han rellenado todos los campos de la nueva noticia")
+        } else {
+            this.addNews(titleArea.value, contentArea.value, authorArea.value)
+            titleArea.value = ""
+            contentArea.value = ""
+            authorArea.value = ""
+        }
+    }
+
     readInputFile(files) {
         var self = this;
         var file = files[0];
@@ -37,7 +53,7 @@ class Noticias {
             </article>
         `
 
-        $("main>section:first").append(news)
+        $("main>section:last-of-type").append(news)
     }
 }
 

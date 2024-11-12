@@ -41,6 +41,23 @@
     <main>
         <p>Introduzca sus noticias desde un archivo de texto:</p>
         <input type="file" onchange="noticias.readInputFile(this.files);" />
+        <p>Introduzca sus noticias manualmente:</p>
+        <section>
+            <section>
+                <label>Título</label>
+                <textarea></textarea>
+            </section>
+            <section>
+                <label>Contenido</label>
+                <textarea></textarea>
+            </section>
+            <section>
+                <label>Autor</label>
+                <textarea></textarea>
+            </section>
+            
+            <button onclick="noticias.getNewActionFromUserText()">Crear Noticia</button>
+        </section>
         <section>
             <h2>Noticias Disponibles</h2>
         </section>

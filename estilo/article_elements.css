@@ -6,6 +6,13 @@ main > section {
 }
 
 /* Especificidad 003 */
+main > section:first-of-type > section {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 1%;
+}
+
+/* Especificidad 003 */
 main > section > h2 {
     grid-column: 1 / -1;
     display: flex;
@@ -13,8 +20,18 @@ main > section > h2 {
     text-decoration-line: underline;
 }
 
+/* Especificidad 002 */
+section > textarea, section > label {
+    margin: 0% 2%;
+}
+
+/* Especificidad 003 */
+section > button {
+    margin: 1% 5%;
+}
+
 /* Especificidad 001 */
-article {
+section > article {
     display: grid;
     max-height: 20em;
     grid-template-rows: 1fr 1fr 1fr 1fr;

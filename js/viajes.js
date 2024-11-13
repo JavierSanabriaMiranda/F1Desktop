@@ -31,17 +31,38 @@ class Viajes {
     }
 
     getStaticMap() {
-        var zoom = 12
-        var width = 600
+        var zoom = 14
+        var width = 1200
         var height = 600
-        var accesToken = "sk.eyJ1IjoidW8yOTM3NTgiLCJhIjoiY20zZXk4YWppMGtjYjJtcXVsNWRpMnI3ZiJ9.CYjCu6qfXNy1dF6sn4cFug"
+        var accessToken = "sk.eyJ1IjoidW8yOTM3NTgiLCJhIjoiY20zZXk4YWppMGtjYjJtcXVsNWRpMnI3ZiJ9.CYjCu6qfXNy1dF6sn4cFug"
 
-        var url = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${this.longitude},${this.latitude},${zoom}/${width}x${height}?access_token=${accesToken}`
+        var url = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${this.longitude},${this.latitude},${zoom}/${width}x${height}?access_token=${accessToken}`
 
-        $("main").append(`
+        $("main>section:first").append(`
             <p></p>    
             <img src=${url} alt="Mapa Ubicación del Usuario" />
-            `)    
+            `)
+        document.querySelector("main>button:first-of-type").disabled = true
+    }
+
+    getDynamicMap() {
+        mapboxgl.accessToken = 'pk.eyJ1IjoidW8yOTM3NTgiLCJhIjoiY20zZXhneDFsMGVzNjJrcXR0aWl4a2x2NCJ9.Pp5UT-I4tLOFae7LBV9Fuw';
+        var container = document.querySelector("div")
+        $(container).css({
+            "height": "70vh",
+            "width": "100%"
+        });
+
+        const map = new mapboxgl.Map({
+            container: container,
+            style: 'mapbox://styles/mapbox/streets-v12',
+            zoom: 14,
+            center: [this.longitude, this.latitude]
+        });
+        new mapboxgl.Marker()
+            .setLngLat([this.longitude, this.latitude])
+            .addTo(map);
+        document.querySelector("main>button:last-of-type").disabled = true
     }
 }
 var viajes = new Viajes()

@@ -12,7 +12,10 @@
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/mapas.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/viajes.js"></script>
@@ -38,8 +41,14 @@
 
     <h2>Viajes</h2>
     <main>
-        <button onclick="viajes.getStaticMap()">Obtener Mapa</button>
-    </main> 
+        <button onclick="viajes.getStaticMap()">Obtener Mapa Estático</button>
+        <button onclick="viajes.getDynamicMap()">Obtener Mapa Dinámico</button>
+        <section>
+            <h2>Mapa Estático</h2>
+        </section>
+        <h2>Mapa Dinámico</h2>
+        <div></div>
+    </main>
 </body>
 
 </html>

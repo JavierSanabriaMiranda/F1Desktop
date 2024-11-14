@@ -32,8 +32,8 @@ class Viajes {
 
     getStaticMap() {
         var zoom = 14
-        var width = 800
-        var height = 400
+        var width = 700
+        var height = 350
         var widthTablet = 460
         var heightTablet = 230
         var widthMovil = 260

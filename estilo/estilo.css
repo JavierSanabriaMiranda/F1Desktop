@@ -183,7 +183,7 @@
 
  /* ----- Estilo para Bloque div de mapas ----- */
 
- main>div:first-of-type {
+ main>div:last-child {
      height: 70vh;
      width: 100%;
  }

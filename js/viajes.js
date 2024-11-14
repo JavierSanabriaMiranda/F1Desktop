@@ -32,15 +32,26 @@ class Viajes {
 
     getStaticMap() {
         var zoom = 14
-        var width = 1200
-        var height = 600
+        var width = 800
+        var height = 400
+        var widthTablet = 460
+        var heightTablet = 230
+        var widthMovil = 260
+        var heightMovil = 130
         var accessToken = "sk.eyJ1IjoidW8yOTM3NTgiLCJhIjoiY20zZXk4YWppMGtjYjJtcXVsNWRpMnI3ZiJ9.CYjCu6qfXNy1dF6sn4cFug"
 
         var url = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${this.longitude},${this.latitude},${zoom}/${width}x${height}?access_token=${accessToken}`
+        var urlTablet = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${this.longitude},${this.latitude},${zoom}/${widthTablet}x${heightTablet}?access_token=${accessToken}`
+        var urlMovil = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${this.longitude},${this.latitude},${zoom}/${widthMovil}x${heightMovil}?access_token=${accessToken}`
 
         $("main>section:first").append(`
             <p></p>    
-            <img src=${url} alt="Mapa Ubicación del Usuario" />
+            <picture>
+                <source media="(max-width: 480px)" srcset="${urlMovil}" />
+                <source media="(max-width: 800px)" srcset="${urlTablet}" />
+                <source media="(min-width: 800px)" srcset="${url}" />
+                <img src=${url} alt="Mapa Ubicación del Usuario" />
+            </picture>
             `)
         document.querySelector("main>button:first-of-type").disabled = true
     }
@@ -48,10 +59,6 @@ class Viajes {
     getDynamicMap() {
         mapboxgl.accessToken = 'pk.eyJ1IjoidW8yOTM3NTgiLCJhIjoiY20zZXhneDFsMGVzNjJrcXR0aWl4a2x2NCJ9.Pp5UT-I4tLOFae7LBV9Fuw';
         var container = document.querySelector("div")
-        $(container).css({
-            "height": "70vh",
-            "width": "100%"
-        });
 
         const map = new mapboxgl.Map({
             container: container,

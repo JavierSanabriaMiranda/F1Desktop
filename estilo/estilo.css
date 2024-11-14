@@ -180,3 +180,10 @@
  main nav:first-of-type>a:hover {
      background-color: #254C83;
  }
+
+ /* ----- Estilo para Bloque div de mapas ----- */
+
+ main>div:first-of-type {
+     height: 70vh;
+     width: 100%;
+ }

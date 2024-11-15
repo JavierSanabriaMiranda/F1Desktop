@@ -38,7 +38,31 @@
         Juego de Memoria</p>
 
     <section>
-        <h2>Juego de Memoria</h2>
+        <header>
+            <h2>Juego de Memoria</h2> 
+            <button>?</button>
+        </header>
+        
+        <!-- Panel de explicación sobre el funcionamiento del juego -->
+        <section>
+            <header>
+                <h3>Funcionamiento del Juego</h3>
+                <button>✖</button>
+            </header>
+            <p>
+                El juego consiste en girar todas las cartas del tablero, de modo que queden boca arriba. 
+                Al girar una carta esta quedará boca arriba mostrando la imagen que la representa.
+                Al girar la siguiente carta pueden suceder dos cosas:
+            </p>
+            <ul>
+                <li>
+                    Las dos cartas contienen la misma imagen → ambas permanecerán boca arriba.
+                </li>
+                <li>
+                    Las dos cartas contienen imágenes diferentes → ambas volverán a ponerse boca abajo.
+                </li>
+            </ul>
+        </section>
         <script>
             var game = new Memoria();
         </script>

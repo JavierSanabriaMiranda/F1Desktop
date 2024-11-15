@@ -4,6 +4,7 @@
  body h2 {
     background-color: #1b365d;
     color: #f2c75c;
+    text-align: center;
  }
 
  /* Especificidad 012 */
@@ -16,12 +17,22 @@
  }
 
  /* Especificidad 013 */
- body>section:first-of-type>h2 {
+ body>section:first-of-type>header {
     display: flex;
     width: 100%;
-    padding: 1%;
-    justify-content: center;
+    justify-content: space-between;
+    background-color: white;
+    
  }
+
+ /* Especificidad 014 */
+ body>section:first-of-type>header>h2 {
+   background-color: #1b365d;
+   padding: 1%;
+   width: 100%;
+   position: relative;
+   left: 2%;
+}
 
  /* Especificidad 013 */
  /* Tarjetas */
@@ -70,6 +81,18 @@
     transform: rotateY(180deg);
  }
 
+ /* Especificidad 014 */
+ body>section:first-of-type>header>button {
+    border-radius: 50%;
+    color: #f2c75c;
+    width: 1.5em;
+    background-color: #254b80;
+    font-size: 1.5em;
+    font-weight: bold;
+    position: relative;
+    left: 5%;
+ }
+
  @media only screen and (max-width: 900px) {
 
     /* Especificidad 012 */
@@ -102,3 +125,36 @@
        font-size: x-small;
     }
  }
+
+ /* Estilo del panel de explicación del juego */
+
+ /* Especificidad 002 */
+ section>section {
+   display: none;
+   border-style: solid;
+   position: fixed;
+   margin: 0% 30%;
+   z-index: 1000;
+   background-color: white;
+ }
+
+ /* Especificidad 003 */
+ section>section>header {
+   display: flex;
+   justify-content: space-between;
+   background-color: white; 
+   margin: 0% 2%;
+ }
+
+  /* Especificidad 003 */
+  section>section>p {
+   justify-content: center;
+   margin: 0% 2%;
+  }
+
+  /* Especificidad 004 */
+  section>section>header>button {
+   background-color: #1b365d;
+   color: #f2c75c;
+   font-weight: bold;
+  }

@@ -171,12 +171,12 @@ class Memoria {
 
     showGameRules() {
         var rulesPanel = document.querySelector("section>section")
-        rulesPanel.style.display = 'block'
+        rulesPanel.removeAttribute("hidden")
     }
 
     hideGameRules() {
         var rulesPanel = document.querySelector("section>section")
-        rulesPanel.style.display = 'none'
+        rulesPanel.setAttribute("hidden", '')
     }
 }
 

@@ -22,17 +22,17 @@
     width: 100%;
     justify-content: space-between;
     background-color: white;
-    
+
  }
 
  /* Especificidad 014 */
  body>section:first-of-type>header>h2 {
-   background-color: #1b365d;
-   padding: 1%;
-   width: 100%;
-   position: relative;
-   left: 2%;
-}
+    background-color: #1b365d;
+    padding: 1%;
+    width: 100%;
+    position: relative;
+    left: 2%;
+ }
 
  /* Especificidad 013 */
  /* Tarjetas */
@@ -93,7 +93,50 @@
     left: 5%;
  }
 
- @media only screen and (max-width: 900px) {
+ /* Estilo del panel de explicación del juego */
+
+ /* Especificidad 002 */
+ section>section {
+    display: block;
+    border-style: solid;
+    position: fixed;
+    z-index: 1000;
+    background-color: white;
+    width: 50%;
+    /* Centrar el cuadro de explicación */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+
+ /* Especificidad 012 */
+ section>section[hidden] {
+    display: none;
+ }
+
+ /* Especificidad 003 */
+ section>section>header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: white;
+    margin: 0% 2%;
+ }
+
+ /* Especificidad 003 */
+ section>section>p {
+    justify-content: center;
+    margin: 0% 2%;
+ }
+
+ /* Especificidad 004 */
+ section>section>header>button {
+    background-color: #1b365d;
+    color: #f2c75c;
+    font-weight: bold;
+ }
+
+ @media only screen and (max-width: 1025px) {
 
     /* Especificidad 012 */
     /* Se redefine el margen del contenedor de tarjetas */
@@ -114,6 +157,27 @@
     body>section:first-of-type>article {
        height: 10em;
     }
+
+    /* Especificidad 014 */
+    /* Se redefine el ancho del titulo del juego y se establece a su posición original */
+    body>section:first-of-type>header>h2 {
+       position: static;
+       width: 90%;
+    }
+
+    /* Especificidad 014 */
+    /* Se establece a su posición original */
+    body>section:first-of-type>header>button {
+       position: static;
+    }
+
+    /* Estilo del panel de explicación del juego */
+
+    /* Especificidad 002 */
+    /* Cambia el ancho del panel de información del juego */
+    section>section {
+       width: 90%;
+    }
  }
 
  @media only screen and (max-width: 400px) {
@@ -124,37 +188,11 @@
     body>section:first-of-type>article>h3 {
        font-size: x-small;
     }
+
+    /* Especificidad 014 */
+    /* Se establece a su posición original */
+    body>section:first-of-type>header>button {
+       font-size: large;
+    }
+
  }
-
- /* Estilo del panel de explicación del juego */
-
- /* Especificidad 002 */
- section>section {
-   display: none;
-   border-style: solid;
-   position: fixed;
-   margin: 0% 30%;
-   z-index: 1000;
-   background-color: white;
- }
-
- /* Especificidad 003 */
- section>section>header {
-   display: flex;
-   justify-content: space-between;
-   background-color: white; 
-   margin: 0% 2%;
- }
-
-  /* Especificidad 003 */
-  section>section>p {
-   justify-content: center;
-   margin: 0% 2%;
-  }
-
-  /* Especificidad 004 */
-  section>section>header>button {
-   background-color: #1b365d;
-   color: #f2c75c;
-   font-weight: bold;
-  }

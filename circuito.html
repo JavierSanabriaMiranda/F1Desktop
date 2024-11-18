@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/circuito.js"></script>
 </head>
 
 <body>
@@ -34,7 +37,13 @@
      <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> Circuitos</p>
 
     <h2>Circuitos de F1</h2>
-    <p>En desarrollo</p>
+    <main>
+        <input type="file" onchange="circuito.printXMLInfo(this.files)"></input>
+        <section>
+            <h3>Información de XML</h3>
+
+        </section>
+    </main>
 </body>
 
 </html>

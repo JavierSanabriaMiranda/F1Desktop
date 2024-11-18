@@ -27,6 +27,10 @@ class Noticias {
         var self = this;
         var file = files[0];
 
+        if (this.apiFile == false) {
+            $("main").append("<h3>No se ha podido leer el archivo pues su navegador no dispone de API File</h3>")
+            return
+        }
         if (file.type.match("text/plain"))    {
             // Se usa el then porque text() devuelve una promise y tenemos que esperar a que se resuelva
             file.text().then(text => { 

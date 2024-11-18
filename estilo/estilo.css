@@ -151,6 +151,12 @@
 
  /* ----- Multimedia ----- */
 
+ /* Especificidad 001 */
+ img {
+    max-width: 80%;
+    height: auto;
+ }
+
  @media only screen and (max-width: 900px) {
 
      /* Especificidad 001 */

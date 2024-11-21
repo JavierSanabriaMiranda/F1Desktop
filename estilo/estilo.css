@@ -54,12 +54,13 @@
 
 
  /* ----- Estilo de Enlaces Externos ----- */
-
+ 
  /* Especificidad 021 */
  /* No es necesario establecer un color de fondo puesto que lo hereda de body */
  a[href ^="http"]:link,
  a[href ^="http"]:visited {
      color: #1b365d;
+     overflow-wrap: break-word;
  }
 
  /* Especificidad 021 */
@@ -200,4 +201,5 @@
  /* Especificidad 001 */
  svg {
      max-height: 10em;
+     max-width: 80vw;
  }

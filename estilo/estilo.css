@@ -199,5 +199,5 @@
 
  /* Especificidad 001 */
  svg {
-     width: 80vw;
+     max-height: 10em;
  }

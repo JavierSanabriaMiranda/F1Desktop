@@ -187,11 +187,11 @@ class Circuito {
             var reader = new FileReader()
             reader.onload = function(event) {
                 var svg = reader.result
-                $("main>section:last-of-type").append($(svg))
+                $("main>section:nth-of-type(2)").append($(svg))
             }
             reader.readAsText(file)
         } else {
-            $("main>section:last-of-type").append(`<h4>El archivo no es de tipo SVG</h4>`)
+            $("main>section:nth-of-type(2)").append(`<h4>El archivo no es de tipo SVG</h4>`)
         }
 
     }

@@ -44,16 +44,16 @@ def crearSVGAltimetria(alturas, distancias, archivoFinal, escala_global = 1):
     svg = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", width="1000", height="500")
 
     # Definir punto de inicio y escalas
-    x0 = 50
-    y0 = 450  # y-coordinate should be inverted for SVG
+    x0 = 50 * escala_global
+    y0 = 450 * escala_global # y-coordinate should be inverted for SVG
     altura_max = max(alturas)
     distancia_max = sum(distancias)
-    escala_x = 900 / distancia_max
-    escala_y = 400 / altura_max
+    escala_x = 900 * escala_global / distancia_max
+    escala_y = 400 * escala_global / altura_max
 
     # Dibujar ejes
-    ET.SubElement(svg, 'line', x1=str(x0), y1=str(y0), x2=str(x0 + 900), y2=str(y0), stroke="black")
-    ET.SubElement(svg, 'line', x1=str(x0), y1=str(y0), x2=str(x0), y2=str(y0 - 400), stroke="black")
+    ET.SubElement(svg, 'line', x1=str(x0), y1=str(y0), x2=str(x0 + 900 * escala_global), y2=str(y0), stroke="black")
+    ET.SubElement(svg, 'line', x1=str(x0), y1=str(y0), x2=str(x0), y2=str(y0 - 400 * escala_global), stroke="black")
 
     # Dibujar línea de altimetría
     x_actual = x0
@@ -85,7 +85,7 @@ def main():
                         "{http://www.uniovi.es}tramo//{http://www.uniovi.es}coordenadas//"
                         "{http://www.uniovi.es}altitud")
     distancias, alturas = getAltimetria(xml, expresionDistancias, expresionAltura)
-    crearSVGAltimetria(alturas, distancias, "xml/perfil.svg", 0.1)
+    crearSVGAltimetria(alturas, distancias, "xml/perfil.svg", 0.2)
 
 if __name__ == '__main__':
     main()

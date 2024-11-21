@@ -32,10 +32,14 @@ def getAltimetria(archivoXML, expresionDistancia, expresionAltura):
     return distancias, alturas
 
 
-def crearSVGAltimetria(alturas, distancias, archivoFinal):
+def crearSVGAltimetria(alturas, distancias, archivoFinal, escala_global = 1):
     # Convertir las listas de strings a enteros
     alturas = list(map(int, alturas))
     distancias = list(map(int, distancias))
+
+    # Aplicar la escala global
+    alturas = list(map(lambda x: x * escala_global, alturas))
+    distancias = list(map(lambda x: x * escala_global, distancias))
 
     svg = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", width="1000", height="500")
 
@@ -74,14 +78,14 @@ def crearSVGAltimetria(alturas, distancias, archivoFinal):
     tree.write(archivoFinal)
 
 def main():
-    xml = "circuitoEsquema.xml"
+    xml = "xml\circuitoEsquema.xml"
     expresionDistancias = ("{http://www.uniovi.es}circuito//{http://www.uniovi.es}tramos//"
                         "{http://www.uniovi.es}tramo//{http://www.uniovi.es}distancia")
     expresionAltura = ("{http://www.uniovi.es}circuito//{http://www.uniovi.es}tramos//"
                         "{http://www.uniovi.es}tramo//{http://www.uniovi.es}coordenadas//"
                         "{http://www.uniovi.es}altitud")
     distancias, alturas = getAltimetria(xml, expresionDistancias, expresionAltura)
-    crearSVGAltimetria(alturas, distancias, "perfil.svg")
+    crearSVGAltimetria(alturas, distancias, "xml/perfil.svg", 0.1)
 
 if __name__ == '__main__':
     main()

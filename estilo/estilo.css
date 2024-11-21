@@ -153,8 +153,8 @@
 
  /* Especificidad 001 */
  img {
-    max-width: 80%;
-    height: auto;
+     max-width: 80%;
+     height: auto;
  }
 
  @media only screen and (max-width: 900px) {
@@ -189,7 +189,15 @@
 
  /* ----- Estilo para Bloque div de mapas ----- */
 
+ /* Especificidad 012 */
  main>div:last-child {
      height: 70vh;
      width: 100%;
+ }
+
+ /* ----- Estilo para svgs ----- */
+
+ /* Especificidad 001 */
+ svg {
+     width: 80vw;
  }

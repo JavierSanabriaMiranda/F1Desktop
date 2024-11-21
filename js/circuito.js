@@ -112,6 +112,89 @@ class Circuito {
             })
         })
     }
+
+    getDynamicMapWithPathFromKMLFile(kmlFile) {
+        var file = kmlFile[0]
+
+        if (this.apiFile == false) {
+            $("main").append("<h3>No se ha podido leer el archivo pues su navegador no dispone de API File</h3>")
+            return
+        }
+        var self = this
+
+        var reader = new FileReader()
+        reader.onload = function(event) {
+                const kmlText = reader.result;
+                
+                // Convertir el texto KML a XML
+                const parser = new DOMParser();
+                const kml = parser.parseFromString(kmlText, 'application/xml');
+                
+                // Convertir KML a GeoJSON usando toGeoJSON
+                const geojson = toGeoJSON.kml(kml);
+
+                // Agregar el GeoJSON al mapa
+                self.addCircuitToMap(geojson);
+        }
+        reader.readAsText(file)
+        
+    }
+
+    addCircuitToMap(geoJSONFile) {
+        mapboxgl.accessToken = 'pk.eyJ1IjoidW8yOTM3NTgiLCJhIjoiY20zZXhneDFsMGVzNjJrcXR0aWl4a2x2NCJ9.Pp5UT-I4tLOFae7LBV9Fuw';
+        var container = document.querySelector("div")
+
+        // Obtenemos la primera coordenada para representar ahí el centro del mapa
+        var firstFeature = geoJSONFile.features.find(
+            (feature) => feature.geometry && feature.geometry.coordinates
+        );
+        var center = firstFeature.geometry.coordinates[0].slice(0, 2)
+
+        const map = new mapboxgl.Map({
+            container: container,
+            style: 'mapbox://styles/mapbox/streets-v12',
+            zoom: 14,
+            center: center
+        });
+        // Agregar el circuito al mapa
+        map.on('load', () => {
+            map.addSource('ruta', {
+                type: 'geojson',
+                data: geoJSONFile
+            });
+
+            // Agregar la capa de tipo 'line' para dibujar el circuito
+            map.addLayer({
+                id: 'ruta-layer',
+                type: 'line',
+                source: 'ruta',
+                paint: {
+                    'line-color': '#FF5722', 
+                    'line-width': 4 
+                }
+            });
+        });
+    }
+
+    getAltimetryBySVGFile(svgFile) {
+        var file = svgFile[0]
+
+        if (this.apiFile == false) {
+            $("main").append("<h3>No se ha podido leer el archivo pues su navegador no dispone de API File</h3>")
+            return
+        }
+        if (file.type === "image/svg+xml") {
+            var reader = new FileReader()
+            reader.onload = function(event) {
+                var svg = reader.result
+                $("main>section:last-of-type").append($(svg))
+            }
+            reader.readAsText(file)
+        } else {
+            $("main>section:last-of-type").append(`<h4>El archivo no es de tipo SVG</h4>`)
+        }
+
+    }
 }
 
 var circuito = new Circuito()

@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/circuito.js"></script>
@@ -38,11 +41,19 @@
 
     <h2>Circuitos de F1</h2>
     <main>
-        <input type="file" onchange="circuito.printXMLInfo(this.files)"></input>
+        <input type="file" onchange="circuito.printXMLInfo(this.files)"/>
+        <input type="file" onchange="circuito.getDynamicMapWithPathFromKMLFile(this.files)"/>
+        <input type="file" onchange="circuito.getAltimetryBySVGFile(this.files)"/>
         <section>
             <h3>Información de XML</h3>
-
         </section>
+        <section>
+            <h3>Altimetría del Circuito</h3>
+        </section>
+        <section>
+            <h3>Circuito en Mapa Dinámico</h3>
+        </section>
+            <div></div>
     </main>
 </body>
 

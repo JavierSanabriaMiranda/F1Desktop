@@ -54,7 +54,7 @@
 
 
  /* ----- Estilo de Enlaces Externos ----- */
- 
+
  /* Especificidad 021 */
  /* No es necesario establecer un color de fondo puesto que lo hereda de body */
  a[href ^="http"]:link,
@@ -152,9 +152,9 @@
 
  /* ----- Multimedia ----- */
 
- /* Especificidad 001 */
+ /* Especificidad 002 */
  img {
-     max-width: 80%;
+     max-width: 80vw;
      height: auto;
  }
 

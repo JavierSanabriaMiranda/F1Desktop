@@ -41,9 +41,15 @@
 
     <h2>Circuitos de F1</h2>
     <main>
+        <label>Introduzca XML:</label>
         <input type="file" onchange="circuito.printXMLInfo(this.files)"/>
-        <input type="file" onchange="circuito.getDynamicMapWithPathFromKMLFile(this.files)"/>
+        <p></p>
+        <label>Introduzca SVG:</label>
         <input type="file" onchange="circuito.getAltimetryBySVGFile(this.files)"/>
+        <p></p>
+        <label>Introduzca KML:</label>
+        <input type="file" onchange="circuito.getDynamicMapWithPathFromKMLFile(this.files)"/>
+        
         <section>
             <h3>Información de XML</h3>
         </section>

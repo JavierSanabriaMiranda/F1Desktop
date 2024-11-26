@@ -1,6 +1,22 @@
 <!DOCTYPE HTML>
 <html lang="es">
 
+<?php
+    class Record {
+        private $server;
+        private $user;
+        private $pass;
+        private $dbname;
+
+        public function __construct() {
+            $this->server = "localhost";
+            $this->user = "DBUSER2024";
+            $this->pass = "DBPSWD2024";
+            $this->dbname = "records";
+        }
+    }
+?>
+
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />

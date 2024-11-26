@@ -97,6 +97,28 @@ main.load>div:last-of-type {
     animation-delay: 1.5s;
 }
 
+/* Especificidad 002 */
+section>h3 {
+    text-align: center;
+}
+
+/* Especificidad 002 */
+section>form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Especificidad 013 */
+section>form>input[type="text"] {
+    margin: 0% 1%;
+}
+
+/* Especificidad 013 */
+section>form>input[type="submit"] {
+    justify-content: center;
+    grid-column: 2 / 3;
+}
+
 @keyframes turnOff {
 
     /* No hace falta establecer un color de primer plano pues no hay texto en el componente que usa la animación */

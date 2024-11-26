@@ -85,6 +85,43 @@ class Semaforo {
 
         var btStart = document.querySelector("body>main:first-of-type>button:first-of-type")
         btStart.disabled = false
+
+        this.createRecordForm()
+    }
+
+    createRecordForm() {
+        var body = document.querySelector("body")
+
+        var section = document.createElement("section")
+        var h3 = document.createElement("h3")
+        var h3Form = document.createTextNode("Registrar Resultados")
+        h3.appendChild(h3Form)
+        section.appendChild(h3)
+
+        var form = document.createElement("form")
+        var inputName = document.createElement("input")
+        inputName.setAttribute("type", "text")
+        inputName.setAttribute("name", "nombre")
+        var inputSurname = document.createElement("input")
+        inputSurname.setAttribute("type", "text")
+        inputSurname.setAttribute("name", "apellido")
+        var inputReactionTime = document.createElement("input")
+        inputReactionTime.setAttribute("type", "text")
+        inputReactionTime.setAttribute("name", "tiempo de reaccion")
+        var inputDifficulty = document.createElement("input")
+        inputDifficulty.setAttribute("type", "text")
+        inputDifficulty.setAttribute("name", "dificultad")
+        var button = document.createElement("input")
+        button.setAttribute("type", "submit")
+        button.setAttribute("name", "enviar resultados")
+
+        form.appendChild(inputName)
+        form.appendChild(inputSurname)
+        form.appendChild(inputReactionTime)
+        form.appendChild(inputDifficulty)
+        form.appendChild(button)
+        section.appendChild(form)
+        body.appendChild(section)
     }
 
 }

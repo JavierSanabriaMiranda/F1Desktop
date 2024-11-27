@@ -86,10 +86,10 @@ class Semaforo {
         var btStart = document.querySelector("body>main:first-of-type>button:first-of-type")
         btStart.disabled = false
 
-        this.createRecordForm()
+        this.createRecordForm(timeDifference)
     }
 
-    createRecordForm() {
+    createRecordForm(timeDifference) {
         var body = document.querySelector("body")
 
         var section = document.createElement("section")
@@ -98,23 +98,47 @@ class Semaforo {
         h3.appendChild(h3Form)
         section.appendChild(h3)
 
+        var labelName = document.createElement("label")
+        labelName.appendChild(document.createTextNode("Nombre:"))
+        var labelSurname = document.createElement("label")
+        labelSurname.appendChild(document.createTextNode("Apellidos:"))
+        var labelReactionTime = document.createElement("label")
+        labelReactionTime.appendChild(document.createTextNode("Tiempo de reacción:"))
+        var labelDifficulty = document.createElement("label")
+        labelDifficulty.appendChild(document.createTextNode("Dificultad:"))
+
         var form = document.createElement("form")
+        // Creamos el input del nombre
         var inputName = document.createElement("input")
         inputName.setAttribute("type", "text")
         inputName.setAttribute("name", "nombre")
+        inputName.setAttribute("placeholder", "Nombre")
+        // Creamos el input del apellido
         var inputSurname = document.createElement("input")
         inputSurname.setAttribute("type", "text")
         inputSurname.setAttribute("name", "apellido")
+        inputSurname.setAttribute("placeholder", "Apellidos")
+        // Creamos el input del tiempo de reacción (autorellenado y no modificable)
         var inputReactionTime = document.createElement("input")
         inputReactionTime.setAttribute("type", "text")
         inputReactionTime.setAttribute("name", "tiempo de reaccion")
+        inputReactionTime.setAttribute("value", timeDifference + "")
+        inputReactionTime.setAttribute("readonly", "")
+        // Creamos el input de la dificultad (autorellenado y no modificable
         var inputDifficulty = document.createElement("input")
         inputDifficulty.setAttribute("type", "text")
         inputDifficulty.setAttribute("name", "dificultad")
+        inputDifficulty.setAttribute("value", this.difficulty + "")
+        inputDifficulty.setAttribute("value", this.difficulty + "")
+        inputReactionTime.setAttribute("readonly", "")
         var button = document.createElement("input")
         button.setAttribute("type", "submit")
         button.setAttribute("name", "enviar resultados")
 
+        form.appendChild(labelName)
+        form.appendChild(labelSurname)
+        form.appendChild(labelReactionTime)
+        form.appendChild(labelDifficulty)
         form.appendChild(inputName)
         form.appendChild(inputSurname)
         form.appendChild(inputReactionTime)

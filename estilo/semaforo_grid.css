@@ -6,7 +6,7 @@ body>main:first-of-type {
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr 0.3fr;
     gap: 2% 3%;
     align-items: center;
 }
@@ -97,6 +97,10 @@ main.load>div:last-of-type {
     animation-delay: 1.5s;
 }
 
+section {
+    margin: 0% 15%
+}
+
 /* Especificidad 002 */
 section>h3 {
     text-align: center;
@@ -106,17 +110,21 @@ section>h3 {
 section>form {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-row: 1fr, 2fr, 1fr;
+    gap:1%
 }
 
 /* Especificidad 013 */
 section>form>input[type="text"] {
-    margin: 0% 1%;
+    font-size: large;
 }
 
 /* Especificidad 013 */
 section>form>input[type="submit"] {
-    justify-content: center;
-    grid-column: 2 / 3;
+    grid-column: 2 / 4;
+    width: 50%;
+    margin: 2%;
+    justify-self: center;
 }
 
 @keyframes turnOff {

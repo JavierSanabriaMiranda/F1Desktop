@@ -110,12 +110,23 @@ section>h3 {
 section>form {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-row: 1fr, 2fr, 1fr;
-    gap:1%
+    grid-template-rows: 1fr 0.5fr;
+    gap: 3%;
 }
 
-/* Especificidad 013 */
-section>form>input[type="text"] {
+/* Especificidad 003 */
+section>form>section {
+    margin: 0%;
+}
+
+/* Especificidad 004 */
+section>form>section>h4 {
+    margin: 0%;
+}
+
+/* Especificidad 014 */
+section>form>section>input[type="text"] {
+    width: 100%;
     font-size: large;
 }
 
@@ -163,6 +174,25 @@ main.load.unload>div {
         border: 0.75em solid black;
     }
 }
+
+@media only screen and (max-width: 700px) {
+
+    /* Especificidad 002 */
+    /* Se redefine el número de elementos que se muestran en el formulario */
+    section>form {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr 0.5fr;
+    }
+
+    /* Especificidad 013 */
+    /* Se redefine las columnas que ocupa el botón */
+    section>form>input[type="submit"] {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
 
 @media only screen and (max-width: 400px) {
 

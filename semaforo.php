@@ -14,7 +14,42 @@
             $this->pass = "DBPSWD2024";
             $this->dbname = "records";
         }
+
+        public function connect() {
+            $connection = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
+            if ($connection->connect_error) {
+                die ("<p>Error de conexión: " . $connection->connect_error . "</p>");
+            }
+            return $connection;
+        }
+
+        public function insertNewRecord() {
+            $nombre = "";
+            $apellidos = "";
+            $tiempo = 0;
+            $nivel = 0;
+
+            if (!empty($_POST['nombre']) && !empty($_POST['apellidos'])) {
+                $nombre = $_POST["nombre"];
+                $apellidos = $_POST["apellidos"];
+                $tiempo = $_POST["tiempo"];
+                $nivel = $_POST["dificultad"];
+        
+                $db = $this->connect();
+                $stmt = $db->prepare("INSERT INTO registro (nombre, apellidos, tiempo, nivel) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("ssdd", $nombre, $apellidos, $tiempo, $nivel);
+                if ($stmt->execute()) {
+                    // Do nothing
+                } else {
+                    die ("<p>Error al hacer el INSERT: " . $stmt->error . "</p>");
+                }
+                $stmt->close();
+            }
+        }
     }
+    
+    $record = new Record();
+    $record->insertNewRecord();
 ?>
 
 <head>

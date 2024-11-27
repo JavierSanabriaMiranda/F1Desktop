@@ -108,20 +108,24 @@ class Semaforo {
         labelDifficulty.appendChild(document.createTextNode("Dificultad:"))
 
         var form = document.createElement("form")
+        form.setAttribute("method", "post")
+
         // Creamos el input del nombre
         var inputName = document.createElement("input")
         inputName.setAttribute("type", "text")
         inputName.setAttribute("name", "nombre")
         inputName.setAttribute("placeholder", "Nombre")
+        inputName.setAttribute("required", "")
         // Creamos el input del apellido
         var inputSurname = document.createElement("input")
         inputSurname.setAttribute("type", "text")
-        inputSurname.setAttribute("name", "apellido")
+        inputSurname.setAttribute("name", "apellidos")
         inputSurname.setAttribute("placeholder", "Apellidos")
+        inputSurname.setAttribute("required", "")
         // Creamos el input del tiempo de reacción (autorellenado y no modificable)
         var inputReactionTime = document.createElement("input")
         inputReactionTime.setAttribute("type", "text")
-        inputReactionTime.setAttribute("name", "tiempo de reaccion")
+        inputReactionTime.setAttribute("name", "tiempo")
         inputReactionTime.setAttribute("value", timeDifference + "")
         inputReactionTime.setAttribute("readonly", "")
         // Creamos el input de la dificultad (autorellenado y no modificable
@@ -130,7 +134,7 @@ class Semaforo {
         inputDifficulty.setAttribute("name", "dificultad")
         inputDifficulty.setAttribute("value", this.difficulty + "")
         inputDifficulty.setAttribute("value", this.difficulty + "")
-        inputReactionTime.setAttribute("readonly", "")
+        inputDifficulty.setAttribute("readonly", "")
         var button = document.createElement("input")
         button.setAttribute("type", "submit")
         button.setAttribute("name", "enviar resultados")

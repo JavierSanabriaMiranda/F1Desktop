@@ -98,6 +98,12 @@
  /* Especificidad 003 */
  ol>li::marker {
      content: counters(list-item, '.') '.';
+     font-weight: bold;
+     color:#1d4289;
+ }
+
+ ol>li {
+     padding-left: 1%;
  }
 
  /* ----- Estilo de Listas de Definición ----- */

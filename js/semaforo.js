@@ -90,8 +90,6 @@ class Semaforo {
     }
 
     createRecordForm(timeDifference) {
-        var body = document.querySelector("body")
-
         var section = document.createElement("section")
         var h3 = document.createElement("h3")
         var h3Form = document.createTextNode("Registrar Resultados")
@@ -159,7 +157,9 @@ class Semaforo {
         form.appendChild(sectionDifficulty)
         form.appendChild(button)
         section.appendChild(form)
-        body.appendChild(section)
+        
+        var main = document.querySelector("body>main:first-of-type")
+        main.insertAdjacentHTML("afterend", section.outerHTML)
     }
 
 }

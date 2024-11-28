@@ -46,6 +46,30 @@
                 $stmt->close();
             }
         }
+
+        public function getBestRecords() {
+            if (count($_POST) > 0) {
+                $nivel = $_POST["dificultad"];
+
+                $db = $this->connect();
+                $stmt = $db->prepare("SELECT nombre, apellidos, tiempo, nivel FROM registro WHERE nivel = $nivel ORDER BY tiempo ASC LIMIT 10");
+                $stmt->execute();
+                $stmt->bind_result($nombre, $apellidos, $tiempo, $nivel);
+                $stmt->store_result();
+                $num_rows = $stmt->num_rows;
+                if ($num_rows > 0) {
+                    echo "<section>";
+                    echo "<h3>Mejores Tiempos para Dificultad $nivel</h3>";
+                    echo "<ol>";
+                    while ($stmt->fetch()) {
+                        echo "<li>$nombre $apellidos: $tiempo s</li>";
+                    }
+                    echo "</ol>";
+                    echo "</section>";
+                }
+                $stmt->close();
+            }
+        }
     }
     
     $record = new Record();
@@ -93,4 +117,8 @@
             var game = new Semaforo()
         </script>
     </main>
+    <?php
+        $record->getBestRecords();
+    ?>
+    
 </body>

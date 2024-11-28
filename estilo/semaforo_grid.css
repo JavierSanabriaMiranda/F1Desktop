@@ -98,7 +98,7 @@ main.load>div:last-of-type {
 }
 
 section {
-    margin: 0% 15%
+    margin: 0% 25%
 }
 
 /* Especificidad 002 */
@@ -138,6 +138,11 @@ section>form>input[type="submit"] {
     justify-self: center;
 }
 
+/* Especificidad 001 */
+section>ol {
+    font-size: large;
+}
+
 @keyframes turnOff {
 
     /* No hace falta establecer un color de primer plano pues no hay texto en el componente que usa la animación */
@@ -159,6 +164,15 @@ main.load.unload>div {
     animation-delay: 1.5s;
 }
 
+/* Especificidad 02 */
+section>h3 {
+    background-color: #1b365d;
+    color: #f2c75c;
+    padding: 1%;
+    text-align: center;
+}
+
+
 @media only screen and (max-width: 900px) {
 
     /* Especificidad 012 */
@@ -172,6 +186,12 @@ main.load.unload>div {
     /* Se redefine el borde de las luces */
     body>main:first-of-type>div {
         border: 0.75em solid black;
+    }
+
+    /* Especificidad 001 */
+    /* Se reduce el margen del section */
+    section {
+        margin: 0% 10%
     }
 }
 
@@ -210,4 +230,17 @@ main.load.unload>div {
         width: auto;
         border: 0.5em solid black;
     }
+
+    /* Especificidad 001 */
+    /* Se reduce el tamaño de la letra */
+    section>ol {
+        font-size: medium;
+    }
+
+    /* Especificidad 001 */
+    /* Se reduce el margen del section */
+    section {
+        margin: 0% 5%
+    }
+
 }

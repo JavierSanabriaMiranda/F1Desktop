@@ -31,7 +31,7 @@
             <a href="calendario.html" title="Calendario">Calendario</a>
             <a href="meteorologia.html" title="Meteorología">Meteorología</a>
             <a href="circuito.html" title="Circuitos">Circuitos</a>
-            <a href="viajes.html" title="Viajes" class="active">Viajes</a>
+            <a href="viajes.php" title="Viajes" class="active">Viajes</a>
             <a href="juegos.html" title="Juegos">Juegos</a>
         </nav>
     </header>

@@ -10,11 +10,11 @@ class Viajes {
         this.altitude = position.coords.altitude;
         this.altitudeAccuracy = position.coords.altitudeAccuracy;
         this.heading = position.coords.heading;
-        this.speed = position.coords.speed;       
+        this.speed = position.coords.speed;
     }
 
     handleErrors(error) {
-        switch(error.code) {
+        switch (error.code) {
             case error.PERMISSION_DENIED:
                 this.mensaje = "El usuario no permite la peticion de geolocalizacion"
                 break;
@@ -27,7 +27,7 @@ class Viajes {
             case error.UNKNOWN_ERROR:
                 this.mensaje = "Se ha producido un error desconocido"
                 break;
-            }
+        }
     }
 
     getStaticMap() {
@@ -70,6 +70,53 @@ class Viajes {
             .setLngLat([this.longitude, this.latitude])
             .addTo(map);
         document.querySelector("main>button:last-of-type").disabled = true
+    }
+
+    addListenersToCarrusel() {
+        var slides = document.querySelectorAll("img");
+
+        // select next slide button
+        const nextSlide = document.querySelector("article>button:nth-of-type(1)");
+
+        // current slide counter
+        let curSlide = 9;
+        // maximum number of slides
+        let maxSlide = slides.length - 1;
+
+        // add event listener and navigation functionality
+        nextSlide.addEventListener("click", function () {
+            // check if current slide is the last and reset current slide
+            if (curSlide === maxSlide) {
+                curSlide = 0;
+            } else {
+                curSlide++;
+            }
+
+            //   move slide by -100%
+            slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - curSlide);
+                $(slide).css('transform', 'translateX(' + trans + '%)')
+            });
+        });
+
+        // select next slide button
+        const prevSlide = document.querySelector("article>button:nth-of-type(2)");
+
+        // add event listener and navigation functionality
+        prevSlide.addEventListener("click", function () {
+            // check if current slide is the first and reset current slide to last
+            if (curSlide === 0) {
+                curSlide = maxSlide;
+            } else {
+                curSlide--;
+            }
+
+            //   move slide by 100%
+            slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - curSlide);
+                $(slide).css('transform', 'translateX(' + trans + '%)')
+            });
+        });
     }
 }
 var viajes = new Viajes()

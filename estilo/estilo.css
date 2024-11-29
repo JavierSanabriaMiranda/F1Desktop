@@ -1,6 +1,6 @@
- /* Javier Sanabria Miranda UO293758 */
+/* Javier Sanabria Miranda UO293758 */
 
- /* Colores:
+/* Colores:
     background: #FFFFFF
     body-color: #f2c75c
     titles-color: #f2c75c
@@ -8,204 +8,271 @@
  */
 
 
- /* Especificidad = 001 */
- body {
-     font-family: Georgia, Times, "Times New Roman", serif;
-     background-color: #FFFF;
-     color: #000000;
- }
+/* Especificidad = 001 */
+body {
+    font-family: Georgia, Times, "Times New Roman", serif;
+    background-color: #FFFF;
+    color: #000000;
+}
 
- /* Especificidad = 001 */
- /* No es necesario establecer un color de primer plano puesto que ya lo hereda de body */
- header {
-     background-color: #1b365d;
- }
+/* Especificidad = 001 */
+/* No es necesario establecer un color de primer plano puesto que ya lo hereda de body */
+header {
+    background-color: #1b365d;
+}
 
- /* Especificidad = 002 */
- /* No es necesario establecer un color de fondo puesto que ya lo hereda de body */
- h1 a,
- nav a {
-     color: #f2c75c;
-     text-decoration-line: none;
- }
+/* Especificidad = 002 */
+/* No es necesario establecer un color de fondo puesto que ya lo hereda de body */
+h1 a,
+nav a {
+    color: #f2c75c;
+    text-decoration-line: none;
+}
 
- /* Especificidad = 001 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- h2 {
-     color: #1d4289;
-     font-weight: 800;
- }
+/* Especificidad = 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+h2 {
+    color: #1d4289;
+    font-weight: 800;
+}
 
- /* Especificidad = 001 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- h3 {
-     color: #1d4289;
- }
+/* Especificidad = 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+h3 {
+    color: #1d4289;
+}
 
- /* ----- Estilo del "Estás aqui: " ----- */
+/* ----- Estilo del "Estás aqui: " ----- */
 
- /* Especificidad = 012 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- body>p:first-of-type,
- body>a:first-of-type {
-     color: #1b365d;
-     font-size: 1.4vmin;
- }
+/* Especificidad = 012 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+body>p:first-of-type,
+body>a:first-of-type {
+    color: #1b365d;
+    font-size: 1.4vmin;
+}
 
 
- /* ----- Estilo de Enlaces Externos ----- */
+/* ----- Estilo de Enlaces Externos ----- */
 
- /* Especificidad 021 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- a[href ^="http"]:link,
- a[href ^="http"]:visited {
-     color: #1b365d;
-     overflow-wrap: break-word;
- }
+/* Especificidad 021 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+a[href ^="http"]:link,
+a[href ^="http"]:visited {
+    color: #1b365d;
+    overflow-wrap: break-word;
+}
 
- /* Especificidad 021 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- a[href ^="http"]:hover {
-     color: #f2c75c;
- }
+/* Especificidad 021 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+a[href ^="http"]:hover {
+    color: #f2c75c;
+}
 
- /* Especificidad 011 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- a[class="active"] {
-     color: #f2c75c;
-     border-color: #f2c75c;
-     text-decoration-line: underline;
- }
+/* Especificidad 011 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+a[class="active"] {
+    color: #f2c75c;
+    border-color: #f2c75c;
+    text-decoration-line: underline;
+}
 
- /* ----- Estilo de Listas (marcadores de listas) ----- */
+/* ----- Estilo de Listas (marcadores de listas) ----- */
 
- /* Especificidad 001 */
- ul {
-     list-style-type: symbols(cyclic '○' '●');
- }
+/* Especificidad 001 */
+ul {
+    list-style-type: symbols(cyclic '○' '●');
+}
 
- /* Especificidad 002 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- li::marker {
-     color: #1b365d;
- }
+/* Especificidad 002 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+li::marker {
+    color: #1b365d;
+}
 
- /* Especificidad 001 */
- li {
-     margin-left: 0.1vw;
- }
+/* Especificidad 001 */
+li {
+    margin-left: 0.1vw;
+}
 
- /* Especificidad 003 */
- ol>li::marker {
-     content: counters(list-item, '.') '.';
-     font-weight: bold;
-     color:#1d4289;
- }
+/* Especificidad 003 */
+ol>li::marker {
+    content: counters(list-item, '.') '.';
+    font-weight: bold;
+    color: #1d4289;
+}
 
- ol>li {
-     padding-left: 1%;
- }
+ol>li {
+    padding-left: 1%;
+}
 
- /* ----- Estilo de Listas de Definición ----- */
+/* ----- Estilo de Listas de Definición ----- */
 
- /* Especificidad 001 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- dt {
-     color: #1b365d;
-     font-weight: bold;
-     text-decoration-line: underline;
- }
+/* Especificidad 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+dt {
+    color: #1b365d;
+    font-weight: bold;
+    text-decoration-line: underline;
+}
 
- /* ----- Estilo para las Tablas ----- */
+/* ----- Estilo para las Tablas ----- */
 
- /* Especificidad 001 */
- table {
-     width: 50vw;
- }
+/* Especificidad 001 */
+table {
+    width: 50vw;
+}
 
- /* Especificidad 001 */
- tr {
-     background-color: #1b365d;
-     border-style: solid;
- }
+/* Especificidad 001 */
+tr {
+    background-color: #1b365d;
+    border-style: solid;
+}
 
- /* Especificidad 001 */
- th {
-     background-color: #1b365d;
-     color: #f2c75c;
-     border-style: solid;
-     width: 30rem;
-     border-color: #183052;
- }
+/* Especificidad 001 */
+th {
+    background-color: #1b365d;
+    color: #f2c75c;
+    border-style: solid;
+    width: 30rem;
+    border-color: #183052;
+}
 
- /* Especificidad 001 */
- /* No es necesario establecer un color puesto que lo hereda de body */
- td {
-     text-align: center;
-     background-color: white;
-     border-style: solid;
-     border-color: #1b365d;
- }
+/* Especificidad 001 */
+/* No es necesario establecer un color puesto que lo hereda de body */
+td {
+    text-align: center;
+    background-color: white;
+    border-style: solid;
+    border-color: #1b365d;
+}
 
- /* Especificidad 001 */
- /* No es necesario establecer un color de fondo puesto que lo hereda de body */
- caption {
-     font-size: large;
-     color: #f2c75c;
-     font-weight: bold;
-     background-color: #1b365d;
- }
+/* Especificidad 001 */
+/* No es necesario establecer un color de fondo puesto que lo hereda de body */
+caption {
+    font-size: large;
+    color: #f2c75c;
+    font-weight: bold;
+    background-color: #1b365d;
+}
 
- /* ----- Multimedia ----- */
+/* ----- Multimedia ----- */
 
- /* Especificidad 002 */
- img {
-     max-width: 80vw;
-     height: auto;
- }
+/* Especificidad 002 */
+img {
+    max-width: 80vw;
+    height: auto;
+}
 
- @media only screen and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
 
-     /* Especificidad 001 */
-     /* Se establece que el video se adapte al tamaño de la pantalla */
-     video {
-         width: 80%;
-         height: auto;
-     }
+    /* Especificidad 001 */
+    /* Se establece que el video se adapte al tamaño de la pantalla */
+    video {
+        width: 80%;
+        height: auto;
+    }
 
-     /* Especificidad 001 */
-     /* Se establece que el audio se adapte al tamaño de la pantalla */
-     audio {
-         width: 60%;
-     }
- }
+    /* Especificidad 001 */
+    /* Se establece que el audio se adapte al tamaño de la pantalla */
+    audio {
+        width: 60%;
+    }
+}
 
- /* ----- Estilo de Navegación en el main ----- */
+/* ----- Estilo de Navegación en el main ----- */
 
- /* Especificidad 013 */
- main nav:first-of-type>a {
-     background-color: #1b365d;
-     color: #f2c75c;
- }
+/* Especificidad 013 */
+main nav:first-of-type>a {
+    background-color: #1b365d;
+    color: #f2c75c;
+}
 
- /* No hace falta establacer color de texto pues lo hereda de main nav:first-of-type > a */
- /* Especificidad 023 */
- main nav:first-of-type>a:hover {
-     background-color: #254C83;
- }
+/* No hace falta establacer color de texto pues lo hereda de main nav:first-of-type > a */
+/* Especificidad 023 */
+main nav:first-of-type>a:hover {
+    background-color: #254C83;
+}
 
- /* ----- Estilo para Bloque div de mapas ----- */
+/* ----- Estilo para Bloque div de mapas ----- */
 
- /* Especificidad 012 */
- main>div:last-child {
-     height: 70vh;
-     width: 100%;
- }
+/* Especificidad 012 */
+main>div:last-child {
+    height: 70vh;
+    width: 100%;
+}
 
- /* ----- Estilo para svgs ----- */
+/* ----- Estilo para svgs ----- */
 
- /* Especificidad 001 */
- svg {
-     max-height: 10em;
-     max-width: 80vw;
- }
+/* Especificidad 001 */
+svg {
+    max-height: 10em;
+    max-width: 80vw;
+}
+
+/* ----- Estilo para carrusel de imágenes ----- */
+
+/* Especificidad 013 */
+body>h2+article:first-of-type {
+    width: 100%;
+    max-width: 100vh;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1em;
+    margin: 0% 0% 2% 3%;
+}
+
+/* Especificidad 014 */
+body>h2+article:first-of-type>h3 {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.5em;
+    font-size: 1.6em;
+}
+
+/* Especificidad 014 */
+body>h2+article:first-of-type>img {
+    width: 100%;
+    max-width: 100vh;
+    height: 50vh;
+    position: absolute;
+    transition: all 0.5s;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+/* Especificidad 014 */
+body>h2+article:first-of-type>button {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Especificidad 024 */
+  body>h2+article:first-of-type>button:active {
+    transform: scale(1.1);
+  }
+  
+  /* Especificidad 024 */
+  body>h2+article:first-of-type>button:nth-of-type(2) {
+    top: 50%;
+    left: 2%;
+  }
+  
+  /* Especificidad 024 */
+  body>h2+article:first-of-type>button:nth-of-type(1) {
+    top: 50%;
+    right: 2%;
+  }

@@ -108,6 +108,9 @@
         <h2>Mapa Dinámico</h2>
         <div></div>
     </main>
+    <script>
+        viajes.addListenersToCarrusel()
+    </script>
 </body>
 
 </html>

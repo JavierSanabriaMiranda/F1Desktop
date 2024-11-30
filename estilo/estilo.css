@@ -180,18 +180,44 @@ img {
     }
 }
 
-/* ----- Estilo de Navegación en el main ----- */
+/* ----- Estilo de Navegación en el main (menú de juegos) ----- */
+
+/* Especificidad 012 */
+main nav:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+}
 
 /* Especificidad 013 */
 main nav:first-of-type>a {
     background-color: #1b365d;
     color: #f2c75c;
+    margin: 2% 0%;
 }
 
 /* No hace falta establacer color de texto pues lo hereda de main nav:first-of-type > a */
 /* Especificidad 023 */
 main nav:first-of-type>a:hover {
     background-color: #254C83;
+}
+
+
+@media only screen and (max-width: 700px) {
+
+    /* Especificidad 012 */
+    main nav:first-of-type {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    /* Especificidad 012 */
+    main nav:first-of-type {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /* ----- Estilo para Bloque div de mapas ----- */
@@ -258,26 +284,26 @@ body>h4+article:first-of-type>button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  /* Especificidad 024 */
-  body>h4+article:first-of-type>button:active {
+/* Especificidad 024 */
+body>h4+article:first-of-type>button:active {
     transform: scale(1.1);
-  }
-  
-  /* Especificidad 024 */
-  body>h4+article:first-of-type>button:nth-of-type(2) {
+}
+
+/* Especificidad 024 */
+body>h4+article:first-of-type>button:nth-of-type(2) {
     top: 50%;
     left: 2%;
-  }
-  
-  /* Especificidad 024 */
-  body>h4+article:first-of-type>button:nth-of-type(1) {
+}
+
+/* Especificidad 024 */
+body>h4+article:first-of-type>button:nth-of-type(1) {
     top: 50%;
     right: 2%;
-  }
+}
 
-  /* Especiicidad 011 */
-  body>h2 + h4 {
+/* Especificidad 011 */
+body>h2+h4 {
     margin: 0% 3%;
-  }
+}

@@ -213,7 +213,7 @@ svg {
 /* ----- Estilo para carrusel de imágenes ----- */
 
 /* Especificidad 013 */
-body>h2+article:first-of-type {
+body>h4+article:first-of-type {
     width: 100%;
     max-width: 100vh;
     height: 50vh;
@@ -224,7 +224,7 @@ body>h2+article:first-of-type {
 }
 
 /* Especificidad 014 */
-body>h2+article:first-of-type>h3 {
+body>h4+article:first-of-type>h3 {
     width: 100%;
     text-align: left;
     margin-bottom: 0.5em;
@@ -232,7 +232,7 @@ body>h2+article:first-of-type>h3 {
 }
 
 /* Especificidad 014 */
-body>h2+article:first-of-type>img {
+body>h4+article:first-of-type>img {
     width: 100%;
     max-width: 100vh;
     height: 50vh;
@@ -243,7 +243,7 @@ body>h2+article:first-of-type>img {
 }
 
 /* Especificidad 014 */
-body>h2+article:first-of-type>button {
+body>h4+article:first-of-type>button {
     position: absolute;
     width: 2em;
     height: 2em;
@@ -261,18 +261,23 @@ body>h2+article:first-of-type>button {
   }
 
   /* Especificidad 024 */
-  body>h2+article:first-of-type>button:active {
+  body>h4+article:first-of-type>button:active {
     transform: scale(1.1);
   }
   
   /* Especificidad 024 */
-  body>h2+article:first-of-type>button:nth-of-type(2) {
+  body>h4+article:first-of-type>button:nth-of-type(2) {
     top: 50%;
     left: 2%;
   }
   
   /* Especificidad 024 */
-  body>h2+article:first-of-type>button:nth-of-type(1) {
+  body>h4+article:first-of-type>button:nth-of-type(1) {
     top: 50%;
     right: 2%;
+  }
+
+  /* Especiicidad 011 */
+  body>h2 + h4 {
+    margin: 0% 3%;
   }

@@ -50,6 +50,42 @@
 
     $carrusel = new Carrusel();
     $carrusel->getPhotos();
+
+    class Moneda {
+
+        private $local_currency;
+        private $exchange_currency;
+
+        public function __construct($local_currency, $exchange_currency) {
+            $this->local_currency = $local_currency;
+            $this->exchange_currency = $exchange_currency;
+        }
+
+        public function getCurrencyExchange() {
+            $url = "https://api.currencylayer.com/convert?";
+            $params = array(
+                'access_key' => '302cc9ba5c7a40b04fc969e5c386383f',
+                'from' => "$this->local_currency",
+                'to' => "$this->exchange_currency",
+                'amount' => '1',
+                'format' => '1'
+            );
+           
+            $encoded_params = array();
+            foreach ($params as $k => $v){
+                $encoded_params[] = urlencode($k).'='.urlencode($v);
+            }
+            $url .= implode('&', $encoded_params);
+            $rsp = file_get_contents($url);
+            $rsp_obj = json_decode($rsp, true);
+
+            $result = $rsp_obj['result'];
+
+            echo "<h4>El cambio de 1 " . $this->local_currency . " a " . $this->exchange_currency . " es de " . $result . "</h4>";
+        }
+    }
+
+    $moneda = new Moneda('EUR', 'QAR');
 ?>
 
 <head>
@@ -90,6 +126,9 @@
     <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> Viajes</p>
 
     <h2>Viajes</h2>
+    <?php
+        $moneda->getCurrencyExchange();
+    ?>
     <article>
         <h3>Carrusel de Imágenes</h3>
         <?php

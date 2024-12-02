@@ -14,29 +14,31 @@ class PitStop {
     }
 
     addDragEventsToWheels() {
-        wheels.forEach(wheel => {
+        var game = this
+
+        this.wheels.forEach(wheel => {
             wheel.addEventListener('dragstart', (event) => {
-                draggedWheel = event.target; // Guardar el elemento arrastrado
+                game.draggedWheel = event.target; // Guardar el elemento arrastrado
             });
         
             wheel.addEventListener('dragend', () => {
-                draggedWheel = null; // Limpiar al terminar
+                game.draggedWheel = null; // Limpiar al terminar
             });
         });
     }
 
     addDropEventsToSlots() {
-        slots.forEach(slot => {
+        var game = this
+
+        this.slots.forEach(slot => {
             slot.addEventListener('dragover', (event) => {
                 event.preventDefault(); // Permitir el "drop"
             });
             slot.addEventListener('drop', (event) => {
                 event.preventDefault();
-                const wheelId = event.dataTransfer.getData('text/plain'); // Obtener ID del neumático
-                if (!slot.classList.contains('completed')) { // Asegurar que el slot no esté ocupado
-                    slot.classList.add('completed'); // Cambiar estado visual
-                    slot.style.backgroundColor = draggedWheel.style.backgroundColor;
-                    draggedWheel.style.display = 'none'; // Ocultar el neumático
+                if (!slot.hasChildNodes()) { // Asegurar que el slot no esté ocupado
+                    slot.appendChild(game.draggedWheel); // Cambiar estado visual
+                    game.draggedWheel.removeAttribute('draggable'); // Deshabilitar el arrastre
                 }
             });
         })

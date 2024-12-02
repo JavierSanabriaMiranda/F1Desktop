@@ -368,6 +368,7 @@ section:first-of-type>div+img {
 /* Especificidad 011 */
 div[draggable="true"] {
     width: 13%;
+    min-width: 10vh;
     height: 10vh;
     border-radius: 10%;
     background-color: black;
@@ -393,4 +394,11 @@ div>div {
 /* Espesificidad 013 */
 body>section+section:nth-child(5) {
     width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Espesificidad 014 */
+body>section+section:nth-child(5)>h3 {
+    width: 100%;
 }

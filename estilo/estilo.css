@@ -344,34 +344,34 @@ section>section:first-of-type>div {
 /* Especificidad 023 */
 /* Rueda de arriba izquierda */
 section>section:first-of-type>div:nth-of-type(1) {
-    left: 16%;
-    top: 14%;
+    left: 13%;
+    top: 15%;
 }
 
 /* Especificidad 023 */
 /* Rueda de arriba derecha */
 section>section:first-of-type>div:nth-of-type(2) {
-    left: 78%;
+    left: 62%;
     top: 14%;
 }
 
 /* Especificidad 023 */
 /* Rueda de abajo izquierda */
 section>section:first-of-type>div:nth-of-type(3) {
-    left: 16%;
+    left: 13%;
     top: 78%;
 }
 
 /* Especificidad 023 */
 /* Rueda de abajo derecha */
 section>section:first-of-type>div:nth-of-type(4) {
-    left: 78%;
+    left: 62%;
     top: 78%;
 }
 
 /* Especificidad 014 */
 section>section:first-of-type>div+img {
-    width: 100%;;
+    width: 80%;;
     height: auto;
 }
 
@@ -391,7 +391,7 @@ div[draggable="true"] {
 
 /* Especificidad 002 */
 /* Rueda ya colocada en el slot */
-/* No hace falta establecer un color de primer plano puesto que no tiene texto */
+
 div>div {
     width: 100%;
     height: 100%;  

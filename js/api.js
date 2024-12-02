@@ -17,12 +17,41 @@ class PitStop {
         var game = this
 
         this.wheels.forEach(wheel => {
+            /* Evento para arrastre con click de raton */
             wheel.addEventListener('dragstart', (event) => {
                 game.draggedWheel = event.target; // Guardar el elemento arrastrado
             });
-        
+
+            /* Evento para arrastre con toque en pantalla táctil */
+            wheel.addEventListener('touchstart', (event) => {
+                game.draggedWheel = event.target; // Guardar el elemento arrastrado
+            });
+
+            /* Evento para finalizar el arrastre con ratón */
             wheel.addEventListener('dragend', () => {
                 game.draggedWheel = null; // Limpiar al terminar
+            });
+
+            /* Evento para finalizar el arrastre con toque en pantalla táctil */
+            wheel.addEventListener('touchend', (event) => {
+                var touch = event.changedTouches[0]; // Obtener la posición final del toque
+                var touchX = touch.clientX;
+                var touchY = touch.clientY;
+
+                game.slots.forEach(slot => {
+                    var slotRectangle = slot.getBoundingClientRect();
+                    // Comprobar si el draggable está dentro de la zona de drop
+                    if (
+                        touchX >= slotRectangle.left &&
+                        touchX <= slotRectangle.right &&
+                        touchY >= slotRectangle.top &&
+                        touchY <= slotRectangle.bottom
+                    ) {
+                        // Si está dentro, añadirlo al slot
+                        slot.appendChild(game.draggedWheel);
+                        game.draggedWheel.removeAttribute('draggable');
+                    }
+                })
             });
         });
     }
@@ -42,7 +71,7 @@ class PitStop {
                 }
             });
         })
-    } 
+    }
 }
 
 pitStop = new PitStop()

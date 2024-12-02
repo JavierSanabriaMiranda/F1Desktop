@@ -57,7 +57,7 @@ nav {
 }
 
 /* Especificidad 002 y 001 el resto */
-body>p, main, h2, aside {
+body>p, main, h2, h3, aside {
     padding: 0vw 3vw
 }
 

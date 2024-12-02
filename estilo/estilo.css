@@ -307,3 +307,75 @@ body>h4+article:first-of-type>button:nth-of-type(1) {
 body>h2+h4 {
     margin: 0% 3%;
 }
+
+/* ----- Estilos para ejercicio APIs HTML5 ----- */
+
+/* Especificidad 013 */
+body>h2+section:nth-child(4) {
+    position: relative;
+    width: 80%;
+}
+
+/* Especificidad 014 */
+body>h2+section:nth-child(4)>h3 {
+    margin-bottom: 1%;
+}
+
+/* Especificidad 012 */
+section:first-of-type>div {
+    position: absolute;
+    width: 13%;
+    height: 15%;
+    border-radius: 10%;
+    border-style: dashed;
+    z-index: 2;
+}
+
+/* Especificidad 022 */
+/* Rueda de arriba izquierda */
+section:first-of-type>div:nth-of-type(1) {
+    left: 14%;
+    top: 9%;
+}
+
+/* Especificidad 022 */
+/* Rueda de arriba derecha */
+section:first-of-type>div:nth-of-type(2) {
+    left: 78%;
+    top: 9%;
+}
+
+/* Especificidad 022 */
+/* Rueda de abajo izquierda */
+section:first-of-type>div:nth-of-type(3) {
+    left: 14%;
+    top: 81%;
+}
+
+/* Especificidad 022 */
+/* Rueda de abajo derecha */
+section:first-of-type>div:nth-of-type(4) {
+    left: 78%;
+    top: 81%;
+}
+
+/* Especificidad 013 */
+section:first-of-type>div+img {
+    width: 100%;;
+}
+
+/* Especificidad 012 */
+section:nth-of-type(2)>div[draggable="true"] {
+    width: 13%;
+    height: 10vh;
+    border-radius: 10%;
+    background-color: black;
+    margin: 1%;
+    border-bottom: dashed yellow 0.3em;
+    border-top: dashed yellow 0.3em;
+}
+
+/* Espesificidad 013 */
+body>section+section:nth-child(5) {
+    width: 80%;
+}

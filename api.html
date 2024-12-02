@@ -37,8 +37,36 @@
         Juego Pit Stop</p>
 
     <h2>Juego Pit Stop</h2>
+
+    <!-- Zona de Drop -->
+    <section>
+        <h3>Coche a Reparar</h3>
+        <!--Ajustandonos a la recomendación recogida en el estándar de HTML
+        estoy usando el div como elemento de último recurso pues no hay otro elemento
+        apropiado para la situación de representar las ruedas del coche.-->
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <img src="multimedia/imagenes/cocheF1Cenital.png" alt="Coche F1 en vista cenital"/>
+    </section>
+
     
-    <img src="multimedia/imagenes/cocheF1Cenital.jpg" alt="Coche F1 en vista cenital"/>
     
+    <!--Zona de ruedas a coger-->
+    <section>
+        <h3>Ruedas a Colocar</h3>
+        <!--Ajustandonos a la recomendación recogida en el estándar de HTML
+        estoy usando el div como elemento de último recurso pues no hay otro elemento
+        apropiado para la situación de representar las ruedas del coche.-->
+        <div draggable="true"></div>
+        <div draggable="true"></div>
+        <div draggable="true"></div>
+        <div draggable="true"></div>
+    </section>
+
+    <script>
+        pitStop.getWheels();
+    </script>
 </body>
     

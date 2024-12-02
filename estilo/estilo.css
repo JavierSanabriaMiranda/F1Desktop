@@ -303,13 +303,15 @@ body>h4+article:first-of-type>button:nth-of-type(1) {
     right: 2%;
 }
 
-/* Especificidad 011 */
+/* Especificidad 003 */
 body>h2+h4 {
     margin: 0% 3%;
 }
 
 /* ----- Estilos para ejercicio APIs HTML5 ----- */
 
+/* Especificidad 012 */
+/* No hace falta definir un color de texto puesto que lo hereda de body */
 body>section:first-of-type {
     background-color: white;
 }

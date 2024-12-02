@@ -3,6 +3,7 @@ class PitStop {
 
     constructor() {
         this.draggedWheel = null
+        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 
     getWheels() {
@@ -50,6 +51,7 @@ class PitStop {
                         // Si está dentro, añadirlo al slot
                         slot.appendChild(game.draggedWheel);
                         game.draggedWheel.removeAttribute('draggable');
+                        game.playSound(); // Reproducir sonido
                     }
                 })
             });
@@ -68,6 +70,7 @@ class PitStop {
                 if (!slot.hasChildNodes()) { // Asegurar que el slot no esté ocupado
                     slot.appendChild(game.draggedWheel); // Cambiar estado visual
                     game.draggedWheel.removeAttribute('draggable'); // Deshabilitar el arrastre
+                    game.playSound(); // Reproducir sonido
                 }
             });
         })
@@ -80,7 +83,18 @@ class PitStop {
         } else {
             document.exitFullscreen()
         }
-            
+    }
+
+    playSound() {
+        // Cargar un archivo de audio
+        var audioElement = new Audio('audiofile.mp3');
+        var audioSource = audioContext.createMediaElementSource(audioElement);
+
+        // Conectar a los altavoces
+        audioSource.connect(audioContext.destination);
+
+        // Reproducir el audio
+        audioElement.play();
     }
 }
 

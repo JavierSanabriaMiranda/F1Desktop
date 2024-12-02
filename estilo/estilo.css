@@ -206,6 +206,7 @@ main nav:first-of-type>a:hover {
 @media only screen and (max-width: 700px) {
 
     /* Especificidad 012 */
+    /* Cambia la direción del flex a fila */
     main nav:first-of-type {
         flex-direction: row;
     }
@@ -214,6 +215,7 @@ main nav:first-of-type>a:hover {
 @media only screen and (max-width: 500px) {
 
     /* Especificidad 012 */
+    /* Cambia la direción del flex a columna */
     main nav:first-of-type {
         flex-direction: column;
         align-items: center;
@@ -269,6 +271,7 @@ body>h4+article:first-of-type>img {
 }
 
 /* Especificidad 014 */
+/* No hace falta establecer un color de primer plano puesto que lo hereda de body */
 body>h4+article:first-of-type>button {
     position: absolute;
     width: 2em;
@@ -373,6 +376,7 @@ section>section:first-of-type>div+img {
 }
 
 /* Especificidad 011 */
+/* No hace falta establecer un color de primer plano puesto que no tiene texto */
 div[draggable="true"] {
     width: 13%;
     min-width: 10vh;
@@ -387,6 +391,7 @@ div[draggable="true"] {
 
 /* Especificidad 002 */
 /* Rueda ya colocada en el slot */
+/* No hace falta establecer un color de primer plano puesto que no tiene texto */
 div>div {
     width: 100%;
     height: 100%;  

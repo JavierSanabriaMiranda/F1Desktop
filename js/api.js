@@ -3,7 +3,6 @@ class PitStop {
 
     constructor() {
         this.draggedWheel = null
-        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 
     getWheels() {
@@ -86,12 +85,19 @@ class PitStop {
     }
 
     playSound() {
+        var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
         // Cargar un archivo de audio
-        var audioElement = new Audio('audiofile.mp3');
+        var audioElement = new Audio('multimedia/audios/sonidoCambioNeumatico.mp3');
         var audioSource = audioContext.createMediaElementSource(audioElement);
 
+        // Crear un nodo de ganancia para controlar el volumen
+        var gainNode = audioContext.createGain();
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime); // Reducir el volumen al 10%
+
         // Conectar a los altavoces
-        audioSource.connect(audioContext.destination);
+        audioSource.connect(gainNode);
+        gainNode.connect(audioContext.destination);
 
         // Reproducir el audio
         audioElement.play();

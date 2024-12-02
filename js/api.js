@@ -7,7 +7,7 @@ class PitStop {
 
     getWheels() {
         this.wheels = document.querySelectorAll("div[draggable]")
-        this.slots = document.querySelectorAll("section:first-of-type>div")
+        this.slots = document.querySelectorAll("section>section:first-of-type>div")
 
         this.addDragEventsToWheels()
         this.addDropEventsToSlots()
@@ -71,6 +71,16 @@ class PitStop {
                 }
             });
         })
+    }
+
+    setFullScreen() {
+        var car = document.querySelector("section:first-of-type")
+        if (document.fullscreenElement === null) {
+            car.requestFullscreen()
+        } else {
+            document.exitFullscreen()
+        }
+            
     }
 }
 

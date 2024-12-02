@@ -310,59 +310,64 @@ body>h2+h4 {
 
 /* ----- Estilos para ejercicio APIs HTML5 ----- */
 
-/* Especificidad 013 */
-body>h2+section:nth-child(4) {
+body>section:first-of-type {
+    background-color: white;
+}
+
+/* Especificidad 014 */
+body>section>button+section:nth-child(3) {
     position: relative;
     width: 80%;
 }
 
-/* Especificidad 014 */
-body>h2+section:nth-child(4)>h3 {
-    margin-bottom: 1%;
+/* Especificidad 015 */
+body>section>button+section:nth-child(3)>h3 {
+    margin: 1% 0%;
 }
 
-/* Especificidad 012 */
+/* Especificidad 013 */
 /* Huecos para colocar las ruedas */
-section:first-of-type>div {
+section>section:first-of-type>div {
     position: absolute;
     width: 13%;
-    height: 15%;
+    height: 12%;
     border-radius: 10%;
     border-style: dashed;
     border-color: black;
 }
 
-/* Especificidad 022 */
+/* Especificidad 023 */
 /* Rueda de arriba izquierda */
-section:first-of-type>div:nth-of-type(1) {
+section>section:first-of-type>div:nth-of-type(1) {
     left: 16%;
-    top: 12%;
+    top: 14%;
 }
 
-/* Especificidad 022 */
+/* Especificidad 023 */
 /* Rueda de arriba derecha */
-section:first-of-type>div:nth-of-type(2) {
+section>section:first-of-type>div:nth-of-type(2) {
     left: 78%;
-    top: 12%;
+    top: 14%;
 }
 
-/* Especificidad 022 */
+/* Especificidad 023 */
 /* Rueda de abajo izquierda */
-section:first-of-type>div:nth-of-type(3) {
+section>section:first-of-type>div:nth-of-type(3) {
     left: 16%;
-    top: 77%;
+    top: 78%;
 }
 
-/* Especificidad 022 */
+/* Especificidad 023 */
 /* Rueda de abajo derecha */
-section:first-of-type>div:nth-of-type(4) {
+section>section:first-of-type>div:nth-of-type(4) {
     left: 78%;
-    top: 77%;
+    top: 78%;
 }
 
-/* Especificidad 013 */
-section:first-of-type>div+img {
+/* Especificidad 014 */
+section>section:first-of-type>div+img {
     width: 100%;;
+    height: auto;
 }
 
 /* Especificidad 011 */
@@ -378,7 +383,7 @@ div[draggable="true"] {
     z-index: 2;
 }
 
-/* Especificidad 011 */
+/* Especificidad 002 */
 /* Rueda ya colocada en el slot */
 div>div {
     width: 100%;
@@ -391,14 +396,14 @@ div>div {
     z-index: 2;
 }
 
-/* Espesificidad 013 */
-body>section+section:nth-child(5) {
+/* Espesificidad 014 */
+body>section>section+section:nth-child(4) {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
 }
 
-/* Espesificidad 014 */
-body>section+section:nth-child(5)>h3 {
+/* Espesificidad 015 */
+body>section>section+section:nth-child(4)>h3 {
     width: 100%;
 }

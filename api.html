@@ -36,37 +36,39 @@
     <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a> >>
         Juego Pit Stop</p>
 
-    <h2>Juego Pit Stop</h2>
 
-    <!-- Zona de Drop -->
     <section>
-        <h3>Coche a Reparar</h3>
-        <!--Ajustandonos a la recomendación recogida en el estándar de HTML
+        <h2>Juego Pit Stop</h2>
+
+        <button onclick="pitStop.setFullScreen()">Pantalla Completa</button>
+        <!-- Zona de Drop -->
+        <section>
+            <h3>Coche a Reparar</h3>
+            <!--Ajustandonos a la recomendación recogida en el estándar de HTML
         estoy usando el div como elemento de último recurso pues no hay otro elemento
         apropiado para la situación de representar las ruedas del coche.-->
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <img src="multimedia/imagenes/cocheF1Cenital.png" alt="Coche F1 en vista cenital"/>
-    </section>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <img src="multimedia/imagenes/cocheF1Cenital.png" alt="Coche F1 en vista cenital" />
+        </section>
 
-    
-    
-    <!--Zona de ruedas a coger-->
-    <section>
-        <h3>Ruedas a Colocar</h3>
-        <!--Ajustandonos a la recomendación recogida en el estándar de HTML
+
+
+        <!--Zona de ruedas a coger-->
+        <section>
+            <h3>Ruedas a Colocar</h3>
+            <!--Ajustandonos a la recomendación recogida en el estándar de HTML
         estoy usando el div como elemento de último recurso pues no hay otro elemento
         apropiado para la situación de representar las ruedas del coche.-->
-        <div draggable="true"></div>
-        <div draggable="true"></div>
-        <div draggable="true"></div>
-        <div draggable="true"></div>
+            <div draggable="true"></div>
+            <div draggable="true"></div>
+            <div draggable="true"></div>
+            <div draggable="true"></div>
+        </section>
     </section>
-
     <script>
         pitStop.getWheels();
     </script>
 </body>
-    

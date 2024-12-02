@@ -57,7 +57,7 @@ nav {
 }
 
 /* Especificidad 002 y 001 el resto */
-body>p, main, h2, h2+section>h3, section+section>h3, aside {
+body>p, main, h2, section>section>h3, section+section>h3, aside {
     padding: 0vw 3vw
 }
 
@@ -73,5 +73,8 @@ main nav:first-of-type {
 /* Especificidad 013 */
 main nav:first-of-type > a {
     padding: 3%;
-    
+}
+
+h2+button {
+    margin: 0% 3%;
 }

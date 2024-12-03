@@ -4,15 +4,16 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>Juegos</title>
+    <title>F1 Manager</title>
     <meta name="author" content="Javier Sanabria Miranda" />
-    <meta name="description" content="Juegos de F1" />
-    <meta name="keywords" content="F1 Desktop" />
+    <meta name="description" content="Simuladore de Manager de F1" />
+    <meta name="keywords" content="F1 Desktop, F1 Manager, Juego" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+
 </head>
 
 <body>
@@ -31,17 +32,6 @@
         </nav>
     </header>
 
-    <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> Juegos</p>
-
-    <h2>Juegos</h2>
-    <main>
-        <nav>
-            <a href="memoria.html" title="Juego Memoria">Juego de Memoria</a>
-            <a href="semaforo.php" title="Juego de Tiempo de Reacción">Juego de Tiempo de Reacción</a>
-            <a href="api.html" title="Juego de Tiempo de Reacción">Juego Pit Stop</a>
-            <a href="php/f1_manager.php" title="Juego F1 Manager">Juego F1 Manager</a>
-        </nav>
-    </main>
+    <p>Estás en <a href="index.html" title="Inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a> >>
+        F1 Manager</p>
 </body>
-
-</html>

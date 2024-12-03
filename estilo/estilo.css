@@ -392,7 +392,7 @@ div[draggable="true"] {
 /* Especificidad 002 */
 /* Rueda ya colocada en el slot */
 
-div>div {
+body>section>section>div>div {
     width: 100%;
     height: 100%;  
     border-radius: 10%;

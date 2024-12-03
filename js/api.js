@@ -102,6 +102,11 @@ class PitStop {
         // Reproducir el audio
         audioElement.play();
     }
+
+    addEventListeners() {
+        var button = document.querySelector("section>button:first-of-type")
+        button.onclick = this.setFullScreen.bind(this)
+    }
 }
 
 pitStop = new PitStop()

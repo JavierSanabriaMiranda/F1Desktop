@@ -139,8 +139,8 @@
     </article>
 
     <main>
-        <button onclick="viajes.getStaticMap()">Obtener Mapa Estático</button>
-        <button onclick="viajes.getDynamicMap()">Obtener Mapa Dinámico</button>
+        <button>Obtener Mapa Estático</button>
+        <button>Obtener Mapa Dinámico</button>
         <section>
             <h2>Mapa Estático</h2>
         </section>
@@ -149,6 +149,7 @@
     </main>
     <script>
         viajes.addListenersToCarrusel()
+        viajes.addEventListenersToButtons()
     </script>
 </body>
 

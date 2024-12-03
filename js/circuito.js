@@ -7,14 +7,14 @@ class Circuito {
             this.apiFile = false;
     }
 
-    printXMLInfo(files) {
+    printXMLInfo(inputXML) {
         if (this.apiFile == false) {
             $("main").append("<h3>No se ha podido leer el archivo pues su navegador no dispone de API File</h3>")
             return
         }
         var self = this
 
-        var file = files[0]
+        var file = inputXML.files[0]
         var name = file.name
         var size = file.size
         var type = file.type
@@ -113,8 +113,8 @@ class Circuito {
         })
     }
 
-    getDynamicMapWithPathFromKMLFile(kmlFile) {
-        var file = kmlFile[0]
+    getDynamicMapWithPathFromKMLFile(inputKML) {
+        var file = inputKML.files[0]
 
         if (this.apiFile == false) {
             $("main").append("<h3>No se ha podido leer el archivo pues su navegador no dispone de API File</h3>")
@@ -176,8 +176,8 @@ class Circuito {
         });
     }
 
-    getAltimetryBySVGFile(svgFile) {
-        var file = svgFile[0]
+    getAltimetryBySVGFile(inputSVG) {
+        var file = inputSVG.files[0]
 
         if (this.apiFile == false) {
             $("main").append("<h3>No se ha podido leer el archivo pues su navegador no dispone de API File</h3>")
@@ -194,6 +194,17 @@ class Circuito {
             $("main>section:nth-of-type(2)").append(`<h4>El archivo no es de tipo SVG</h4>`)
         }
 
+    }
+
+    addEventListeners() {
+        var inputXML = document.querySelector("main>input:nth-of-type(1)")
+        inputXML.onchange = this.printXMLInfo.bind(this, inputXML)
+
+        var inputSVG = document.querySelector("main>input:nth-of-type(2)")
+        inputSVG.onchange = this.getAltimetryBySVGFile.bind(this, inputSVG)
+
+        var inputKML = document.querySelector("main>input:nth-of-type(3)")
+        inputKML.onchange = this.getDynamicMapWithPathFromKMLFile.bind(this, inputKML)
     }
 }
 

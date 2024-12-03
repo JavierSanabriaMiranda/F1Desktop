@@ -118,5 +118,13 @@ class Viajes {
             });
         });
     }
+
+    addEventListenersToButtons() {
+        var buttonStaticMap = document.querySelector("main>button:first-of-type")
+        buttonStaticMap.onclick = this.getStaticMap.bind(this)
+
+        var buttonDynamicMap = document.querySelector("main>button:last-of-type")
+        buttonDynamicMap.onclick = this.getDynamicMap.bind(this)
+    }
 }
 var viajes = new Viajes()

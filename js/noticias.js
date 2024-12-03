@@ -23,7 +23,9 @@ class Noticias {
         }
     }
 
-    readInputFile(files) {
+    readInputFile(inputElement) {
+        var files = inputElement.files
+
         var self = this;
         var file = files[0];
 
@@ -58,6 +60,14 @@ class Noticias {
         `
 
         $("main>section:last-of-type").append(news)
+    }
+
+    addEventListeners() {
+        var button = document.querySelector("main>section>button")
+        var input = document.querySelector("main>input")
+
+        button.onclick = this.getNewActionFromUserText.bind(this)
+        input.onchange = this.readInputFile.bind(this, input)
     }
 }
 

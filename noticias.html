@@ -40,7 +40,7 @@
     <h2>Noticias</h2>
     <main>
         <h3>Introduzca sus noticias desde un archivo de texto:</h3>
-        <input type="file" onchange="noticias.readInputFile(this.files)" />
+        <input type="file"/>
         
         <section>
             <h3>Introduzca sus noticias manualmente:</h3>
@@ -57,12 +57,14 @@
                 <textarea></textarea>
             </section>
             
-            <button onclick="noticias.getNewActionFromUserText()">Crear Noticia</button>
+            <button>Crear Noticia</button>
         </section>
         <section>
             <h2>Noticias Disponibles</h2>
         </section>
     </main>
+
+    <script>noticias.addEventListeners()</script>
 </body>
 
 </html>

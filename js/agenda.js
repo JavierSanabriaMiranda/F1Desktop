@@ -29,7 +29,7 @@ class Agenda {
                     var raceTime = this.time
 
                     var raceInfo = `
-                    <article>
+                    <article lang="en">
                         <h3>${raceName}</h3>
                         <h4>${circuit}</h4>
                         <p>Coordenadas: ${latCircuit}, ${lonCircuit}</p>

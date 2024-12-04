@@ -49,7 +49,7 @@
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 return $conn;
             } catch (PDOException $e) {
-                die ("<p>Error de conexión: " . $e->getMessage() . "</p>");
+                throw $e;
             }
         }
 
@@ -60,8 +60,8 @@
             }
 
             $csvFile = $_FILES['csvFile']['tmp_name'];
-            $conn = $this->connect();
             try {
+                $conn = $this->connect();
                 $file = fopen($csvFile, 'r');
                 if ($file === false) {
                     die ("<p>Error al abrir el archivo CSV</p>");
@@ -93,53 +93,61 @@
                 }
                 fclose($file);                
             } catch (PDOException $e) {
-                die ("<p>Error al importar datos: " . $e->getMessage() . "</p>");
+                echo "<h5>La base de datos no ha sido inicializada</h5>";
             }
         }
 
         public function exportCSV() {
             $fileName = "F1ManagerSimulation.csv";
-            $conn = $this->connect();
+            try {
+                $conn = $this->connect();
 
-            // Preparar encabezados para la descarga del archivo CSV
-            header('Content-Type: text/csv; charset=utf-8');
-            header('Content-Disposition: attachment; filename=' . $fileName);
+                // Preparar encabezados para la descarga del archivo CSV
+                header('Content-Type: text/csv; charset=utf-8');
+                header('Content-Disposition: attachment; filename=' . $fileName);
 
-            // Crear un flujo de salida que se envía directamente al cliente
-            $output = fopen('php://output', 'w');
+                // Crear un flujo de salida que se envía directamente al cliente
+                $output = fopen('php://output', 'w');
 
-            // Definimos los nombres de todas las tablas de la base de datos
-            $tables = ["equipos", "pilotos", "circuitos", "carreras", "piloto_carrera"];
+                // Definimos los nombres de todas las tablas de la base de datos
+                $tables = ["equipos", "pilotos", "circuitos", "carreras", "piloto_carrera"];
 
-            // Iterar sobre cada tabla
-            foreach ($tables as $table) {
-                // Escribir el encabezado de la tabla
-                fputcsv($output, ["#TABLE", $table]);
+                // Iterar sobre cada tabla
+                foreach ($tables as $table) {
+                    // Escribir el encabezado de la tabla
+                    fputcsv($output, ["#TABLE", $table]);
 
-                // Obtener los nombres de las columnas de la tabla
-                $columnsQuery = $conn->query("DESCRIBE $table");
-                $columns = $columnsQuery->fetchAll(PDO::FETCH_COLUMN);
+                    // Obtener los nombres de las columnas de la tabla
+                    $columnsQuery = $conn->query("DESCRIBE $table");
+                    $columns = $columnsQuery->fetchAll(PDO::FETCH_COLUMN);
 
-                // Escribir las columnas como encabezado
-                fputcsv($output, $columns);
+                    // Escribir las columnas como encabezado
+                    fputcsv($output, $columns);
 
-                // Obtener los datos de la tabla
-                $dataQuery = $conn->query("SELECT * FROM $table");
-                while ($row = $dataQuery->fetch(PDO::FETCH_ASSOC)) {
-                    // Escribir cada fila en el CSV
-                    fputcsv($output, $row);
+                    // Obtener los datos de la tabla
+                    $dataQuery = $conn->query("SELECT * FROM $table");
+                    while ($row = $dataQuery->fetch(PDO::FETCH_ASSOC)) {
+                        // Escribir cada fila en el CSV
+                        fputcsv($output, $row);
+                    }
                 }
-            }
 
-            // Cerrar el flujo de salida
-            fclose($output);
-            exit; // Terminar el script para que no se envíe contenido adicional
+                // Cerrar el flujo de salida
+                fclose($output);
+                exit; // Terminar el script para que no se envíe contenido adicional
+            } catch (PDOException $e) {
+                echo "<h5>La base de datos no ha sido inicializada</h5>";
+            }
         }
 
         public function getTeams() {
-            $conn = $this->connect();
-            $stmt = $conn->query("SELECT nombre FROM equipos");
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            try {
+                $conn = $this->connect();
+                $stmt = $conn->query("SELECT nombre FROM equipos");
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                return false;
+            }
         }
 
         public function createPilot() {
@@ -149,36 +157,27 @@
             $nationality = $_POST['nacionalidad'];
             $team = $_POST['equipo'];
 
-            $conn = $this->connect();
-            // Obtenemos el id del equipo seleccionado
-            $stmt = $conn->prepare("SELECT id_equipo FROM equipos WHERE nombre = ?");
-            $team = $stmt->execute([$team]);
-            // Creamos el nuevo piloto
-            $stmt = $conn->prepare("INSERT INTO pilotos (nombre, apellido, fecha_nacimiento, nacionalidad, id_equipo) VALUES (?, ?, ?, ?, ?)");
-            $stmt->execute([$name, $surname, $birthday, $nationality, $team]);
+            try {
+                $conn = $this->connect();
+                // Obtenemos el id del equipo seleccionado
+                $stmt = $conn->prepare("SELECT id_equipo FROM equipos WHERE nombre = ?");
+                $team = $stmt->execute([$team]);
+                // Creamos el nuevo piloto
+                $stmt = $conn->prepare("INSERT INTO pilotos (nombre, apellido, fecha_nacimiento, nacionalidad, id_equipo) VALUES (?, ?, ?, ?, ?)");
+                $stmt->execute([$name, $surname, $birthday, $nationality, $team]);
+            } catch (PDOException $e) {
+                echo "<h5>La base de datos no ha sido inicializada</h5>";
+            }
+            
         }
 
     }
 
+    $f1_manager = new F1Manager();
+
     // Procesar solicitud del formulario
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['createDB'])) {
-        $f1_manager = new F1Manager();
         $f1_manager->createDatabase();
-    }
-    // Procesar importación de datos desde CSV
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['importCSV'])) {
-        $f1_manager = new F1Manager();
-        $f1_manager->importCSV();
-    }
-    // Procesar exportación de datos a CSV 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['exportCSV'])) {
-        $f1_manager = new F1Manager();
-        $f1_manager->exportCSV();
-    }
-    // Procesar creación de nuevo piloto 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['createPilot'])) {
-        $f1_manager = new F1Manager();
-        $f1_manager->createPilot();
     }
 ?>
 
@@ -227,12 +226,24 @@
                 <input type="file" name="csvFile" />
                 <button type="submit" name="importCSV">Importar</button>
             </form>
+            <?php
+                // Procesar importación de datos desde CSV
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['importCSV'])) {
+                    $f1_manager->importCSV();
+                }
+            ?>
         </section>
         <section>
             <h4>Exportar Datos a CSV:</h4>
             <form method="POST">
                 <button type="submit" name="exportCSV">Exportar</button>
             </form>
+            <?php
+                // Procesar exportación de datos a CSV 
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['exportCSV'])) {
+                    $f1_manager->exportCSV();
+                }
+            ?>
         </section>
 
         <!-- Sección de creación de nuevo piloto -->
@@ -250,14 +261,21 @@
                 <h4>Equipo:</h4>
                 <select name="equipo" >
                     <?php
-                        $f1_manager = new F1Manager();
                         $teams = $f1_manager->getTeams();
-                        foreach ($teams as $team) {
-                            echo "<option value='{$team['nombre']}'>{$team['nombre']}</option>";
+                        if ($teams !== false) {
+                            foreach ($teams as $team) {
+                                echo "<option value='{$team['nombre']}'>{$team['nombre']}</option>";
+                            }
                         }
                     ?>
                 </select>
                 <button type="submit" name="createPilot">Crear Piloto</button>
+                <?php
+                    // Procesar creación de nuevo piloto 
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['createPilot'])) {
+                        $f1_manager->createPilot();
+                    }
+                ?>
             </form>
         </section>
     </main>

@@ -179,6 +179,7 @@
                 );
                 $races = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $this->simulateRaces($races, $conn);
+                $this->getBestPilots($conn);
 
             } catch (PDOException $e) {
                 echo "<h5>La base de datos no ha sido inicializada: $e</h5>";
@@ -205,6 +206,23 @@
                     $stmt->execute([$pilotId, $race['ID_Carrera'], $position, $points]);
                 }                
             }
+        }
+
+        public function getBestPilots($conn) {
+            $stmt = $conn->query(
+                "SELECT p.nombre, p.apellido, sum(pc.puntos) FROM pilotos p 
+                    inner join piloto_carrera pc on p.id_piloto = pc.id_piloto
+                    group by p.id_piloto order by sum(pc.puntos) desc");
+            $best_pilots = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            echo "<section>";
+            echo "<h3>Clasificación Final</h3>";
+            foreach($best_pilots as $pilot) {
+                $name = ucfirst($pilot['nombre']);
+                $surname = ucfirst($pilot['apellido']);
+
+                echo "<p>{$name} {$surname} - {$pilot['sum(pc.puntos)']}</p>";
+            }
+            echo "</section>";
         }
 
     }
@@ -281,6 +299,7 @@
                 }
             ?>
         </section>
+        <hr/>
 
         <!-- Sección de creación de nuevo piloto -->
         <section>

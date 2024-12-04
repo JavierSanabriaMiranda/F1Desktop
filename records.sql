@@ -34,15 +34,6 @@ CREATE TABLE `registro` (
   `tiempo` float(6,3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `registro`
---
-
-INSERT INTO `registro` (`nombre`, `apellidos`, `nivel`, `tiempo`) VALUES
-('test6', 'test6', 0.800, 0.198),
-('Javier', 'Sanabria Miranda', 0.200, 0.201);
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

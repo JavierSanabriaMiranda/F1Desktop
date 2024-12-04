@@ -180,7 +180,7 @@
                 $races = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 $this->simulateRaces($races, $conn);
                 $this->getBestPilots($conn);
-
+                $this->getRaces($conn);
             } catch (PDOException $e) {
                 echo "<h5>La base de datos no ha sido inicializada: $e</h5>";
             }
@@ -188,22 +188,24 @@
 
         public function simulateRaces($races, $conn) {
             foreach($races as $race) {
-                $stmt = $conn->query("SELECT id_piloto FROM pilotos");
-                $pilotsIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                $stmt = $conn->query("SELECT * FROM pilotos");
+                $pilots = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $positions = array();
+                foreach($pilots as $pilot) {
+                    $name = ucfirst($pilot['Nombre']);
+                    $surname = ucfirst($pilot['Apellido']);
 
-                foreach($pilotsIds as $pilotId) {
-                    $positions = [];
                     do {
-                        $position = rand(1, count($pilotsIds));
-                    } while (in_array($position, $positions));
-                    array_push($positions, $position);
+                        $position = rand(1, count($pilots));
+                    } while (array_key_exists($position, $positions));
+                    $positions[$position] = $name . ' ' . $surname;
                     $points = $this->points_system[$position - 1];
 
                     $stmt = $conn->prepare(
                         "INSERT INTO piloto_carrera (id_piloto, id_carrera, posicion, puntos) 
                         VALUES (?, ?, ?, ?)"
                     );
-                    $stmt->execute([$pilotId, $race['ID_Carrera'], $position, $points]);
+                    $stmt->execute([$pilot['ID_Piloto'], $race['ID_Carrera'], $position, $points]);
                 }                
             }
         }
@@ -223,6 +225,27 @@
                 echo "<p>{$name} {$surname} - {$pilot['sum(pc.puntos)']}</p>";
             }
             echo "</section>";
+        }
+
+        public function getRaces($conn) {
+            $stmt = $conn->query("SELECT * FROM carreras ORDER BY fecha ASC");
+            $races = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($races as $race)  {
+                $stmt = $conn->query("SELECT p.nombre, p.apellido FROM pilotos p 
+                    inner join piloto_carrera pc on p.id_piloto = pc.id_piloto
+                    where pc.id_carrera = {$race['ID_Carrera']} order by pc.posicion ASC LIMIT 3");
+                $positions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                echo "<article>";
+                echo "<h4>{$race['Fecha']}</h3>";
+                // Mostrar posiciones con nombres en mayúscula
+                foreach ($positions as $index => $pilot) {
+                    $formattedName = ucwords($pilot['nombre']) . ' ' . ucwords($pilot['apellido']);
+                    $medal = ['🥇', '🥈', '🥉'][$index]; // Seleccionar la medalla según la posición
+                    echo "<p>{$medal}{$formattedName}</p>";
+                }
+                echo "</article>";
+            }
         }
 
     }
@@ -246,6 +269,7 @@
 
     <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="../estilo/f1_manager.css" />
     <link rel="icon" href="../multimedia/imagenes/favicon.ico" />
 
 </head>
@@ -303,48 +327,50 @@
 
         <!-- Sección de creación de nuevo piloto -->
         <section>
-            <h3>Crear Nuevo Piloto</h3>
-            <form method="POST">
-                <h4>Nombre:</h4>
-                <input type="text" name="nombre" required/>
-                <h4>Apellido:</h4>
-                <input type="text" name="apellido" required/>
-                <h4>Fecha de Nacimiento:</h4>
-                <input type="date" name="fecha_nacimiento" required/>
-                <h4>Nacionalidad:</h4>
-                <input type="text" name="nacionalidad" required/>
-                <h4>Equipo:</h4>
-                <select name="equipo" >
-                    <?php
-                        $teams = $f1_manager->getTeams();
-                        if ($teams !== false) {
-                            foreach ($teams as $team) {
-                                echo "<option value='{$team['nombre']}'>{$team['nombre']}</option>";
+            <section>
+                <h3>Crear Nuevo Piloto</h3>
+                <form method="POST">
+                    <h4>Nombre:</h4>
+                    <input type="text" name="nombre" required/>
+                    <h4>Apellido:</h4>
+                    <input type="text" name="apellido" required/>
+                    <h4>Fecha de Nacimiento:</h4>
+                    <input type="date" name="fecha_nacimiento" required/>
+                    <h4>Nacionalidad:</h4>
+                    <input type="text" name="nacionalidad" required/>
+                    <h4>Equipo:</h4>
+                    <select name="equipo" >
+                        <?php
+                            $teams = $f1_manager->getTeams();
+                            if ($teams !== false) {
+                                foreach ($teams as $team) {
+                                    echo "<option value='{$team['nombre']}'>{$team['nombre']}</option>";
+                                }
                             }
+                        ?>
+                    </select>
+                    <button type="submit" name="createPilot">Crear Piloto</button>
+                    <?php
+                        // Procesar creación de nuevo piloto 
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['createPilot'])) {
+                            $f1_manager->createPilot();
                         }
                     ?>
-                </select>
-                <button type="submit" name="createPilot">Crear Piloto</button>
+                </form>
+            </section>
+            <!-- Sección de creación de nuevo piloto -->
+            <section>
+                <h3>Simulación</h3>
+                <form method="POST">
+                    <button type="submit" name="startSimulation">Iniciar</button>
+                </form>
                 <?php
-                    // Procesar creación de nuevo piloto 
-                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['createPilot'])) {
-                        $f1_manager->createPilot();
+                    // Procesar simulación
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['startSimulation'])) {
+                        $f1_manager->simulate();
                     }
                 ?>
-            </form>
-        </section>
-        <!-- Sección de creación de nuevo piloto -->
-        <section>
-            <h3>Simulación</h3>
-            <form method="POST">
-                <button type="submit" name="startSimulation">Iniciar</button>
-            </form>
-            <?php
-                // Procesar simulación
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['startSimulation'])) {
-                    $f1_manager->simulate();
-                }
-            ?>
+            </section>
         </section>
     </main>
 </body>

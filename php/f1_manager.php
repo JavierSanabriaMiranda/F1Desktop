@@ -96,6 +96,45 @@
                 die ("<p>Error al importar datos: " . $e->getMessage() . "</p>");
             }
         }
+
+        public function exportCSV() {
+            $fileName = "F1ManagerSimulation.csv";
+            $conn = $this->connect();
+
+            // Preparar encabezados para la descarga del archivo CSV
+            header('Content-Type: text/csv; charset=utf-8');
+            header('Content-Disposition: attachment; filename=' . $fileName);
+
+            // Crear un flujo de salida que se envía directamente al cliente
+            $output = fopen('php://output', 'w');
+
+            // Definimos los nombres de todas las tablas de la base de datos
+            $tables = ["equipos", "pilotos", "circuitos", "carreras", "piloto_carrera"];
+
+            // Iterar sobre cada tabla
+            foreach ($tables as $table) {
+                // Escribir el encabezado de la tabla
+                fputcsv($output, ["#TABLE", $table]);
+
+                // Obtener los nombres de las columnas de la tabla
+                $columnsQuery = $conn->query("DESCRIBE $table");
+                $columns = $columnsQuery->fetchAll(PDO::FETCH_COLUMN);
+
+                // Escribir las columnas como encabezado
+                fputcsv($output, $columns);
+
+                // Obtener los datos de la tabla
+                $dataQuery = $conn->query("SELECT * FROM $table");
+                while ($row = $dataQuery->fetch(PDO::FETCH_ASSOC)) {
+                    // Escribir cada fila en el CSV
+                    fputcsv($output, $row);
+                }
+            }
+
+            // Cerrar el flujo de salida
+            fclose($output);
+            exit; // Terminar el script para que no se envíe contenido adicional
+        }
     }
 
     // Procesar solicitud del formulario
@@ -107,6 +146,10 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['importCSV'])) {
         $f1_manager = new F1Manager();
         $f1_manager->importCSV();
+    }
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['exportCSV'])) {
+        $f1_manager = new F1Manager();
+        $f1_manager->exportCSV();
     }
 ?>
 
@@ -154,6 +197,12 @@
             <form method="POST" enctype="multipart/form-data">
                 <input type="file" name="csvFile" />
                 <button type="submit" name="importCSV">Importar</button>
+            </form>
+        </section>
+        <section>
+            <h4>Exportar Datos a CSV:</h4>
+            <form method="POST">
+                <button type="submit" name="exportCSV">Exportar</button>
             </form>
         </section>
     </main>

@@ -10,6 +10,7 @@
         private $pass;
         private $dbname;
         private $sql_file;
+        private $points_system = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
 
         public function __construct() {
             $this->server = "localhost";
@@ -168,7 +169,42 @@
             } catch (PDOException $e) {
                 echo "<h5>La base de datos no ha sido inicializada</h5>";
             }
-            
+        }
+
+        public function simulate() {
+            try {
+                $conn = $this->connect();
+                $stmt = $conn->query(
+                    "SELECT * FROM carreras WHERE id_carrera NOT IN (SELECT id_carrera FROM piloto_carrera)"
+                );
+                $races = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $this->simulateRaces($races, $conn);
+
+            } catch (PDOException $e) {
+                echo "<h5>La base de datos no ha sido inicializada: $e</h5>";
+            }
+        }
+
+        public function simulateRaces($races, $conn) {
+            foreach($races as $race) {
+                $stmt = $conn->query("SELECT id_piloto FROM pilotos");
+                $pilotsIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+                foreach($pilotsIds as $pilotId) {
+                    $positions = [];
+                    do {
+                        $position = rand(1, count($pilotsIds));
+                    } while (in_array($position, $positions));
+                    array_push($positions, $position);
+                    $points = $this->points_system[$position - 1];
+
+                    $stmt = $conn->prepare(
+                        "INSERT INTO piloto_carrera (id_piloto, id_carrera, posicion, puntos) 
+                        VALUES (?, ?, ?, ?)"
+                    );
+                    $stmt->execute([$pilotId, $race['ID_Carrera'], $position, $points]);
+                }                
+            }
         }
 
     }
@@ -277,6 +313,19 @@
                     }
                 ?>
             </form>
+        </section>
+        <!-- Sección de creación de nuevo piloto -->
+        <section>
+            <h3>Simulación</h3>
+            <form method="POST">
+                <button type="submit" name="startSimulation">Iniciar</button>
+            </form>
+            <?php
+                // Procesar simulación
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['startSimulation'])) {
+                    $f1_manager->simulate();
+                }
+            ?>
         </section>
     </main>
 </body>

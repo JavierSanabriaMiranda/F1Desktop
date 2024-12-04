@@ -135,6 +135,29 @@
             fclose($output);
             exit; // Terminar el script para que no se envíe contenido adicional
         }
+
+        public function getTeams() {
+            $conn = $this->connect();
+            $stmt = $conn->query("SELECT nombre FROM equipos");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function createPilot() {
+            $name = $_POST['nombre'];
+            $surname = $_POST['apellido'];
+            $birthday = $_POST['fecha_nacimiento'];
+            $nationality = $_POST['nacionalidad'];
+            $team = $_POST['equipo'];
+
+            $conn = $this->connect();
+            // Obtenemos el id del equipo seleccionado
+            $stmt = $conn->prepare("SELECT id_equipo FROM equipos WHERE nombre = ?");
+            $team = $stmt->execute([$team]);
+            // Creamos el nuevo piloto
+            $stmt = $conn->prepare("INSERT INTO pilotos (nombre, apellido, fecha_nacimiento, nacionalidad, id_equipo) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$name, $surname, $birthday, $nationality, $team]);
+        }
+
     }
 
     // Procesar solicitud del formulario
@@ -147,9 +170,15 @@
         $f1_manager = new F1Manager();
         $f1_manager->importCSV();
     }
+    // Procesar exportación de datos a CSV 
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['exportCSV'])) {
         $f1_manager = new F1Manager();
         $f1_manager->exportCSV();
+    }
+    // Procesar creación de nuevo piloto 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['createPilot'])) {
+        $f1_manager = new F1Manager();
+        $f1_manager->createPilot();
     }
 ?>
 
@@ -203,6 +232,32 @@
             <h4>Exportar Datos a CSV:</h4>
             <form method="POST">
                 <button type="submit" name="exportCSV">Exportar</button>
+            </form>
+        </section>
+
+        <!-- Sección de creación de nuevo piloto -->
+        <section>
+            <h3>Crear Nuevo Piloto</h3>
+            <form method="POST">
+                <h4>Nombre:</h4>
+                <input type="text" name="nombre" required/>
+                <h4>Apellido:</h4>
+                <input type="text" name="apellido" required/>
+                <h4>Fecha de Nacimiento:</h4>
+                <input type="date" name="fecha_nacimiento" required/>
+                <h4>Nacionalidad:</h4>
+                <input type="text" name="nacionalidad" required/>
+                <h4>Equipo:</h4>
+                <select name="equipo" >
+                    <?php
+                        $f1_manager = new F1Manager();
+                        $teams = $f1_manager->getTeams();
+                        foreach ($teams as $team) {
+                            echo "<option value='{$team['nombre']}'>{$team['nombre']}</option>";
+                        }
+                    ?>
+                </select>
+                <button type="submit" name="createPilot">Crear Piloto</button>
             </form>
         </section>
     </main>

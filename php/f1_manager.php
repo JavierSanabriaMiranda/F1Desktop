@@ -1,8 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="es">
-
 <?php
-
     class F1Manager {
 
         private $server;
@@ -258,7 +254,16 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['createDB'])) {
         $f1_manager->createDatabase();
     }
+
+    // Procesar exportación de datos a CSV 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['exportCSV'])) {
+        $f1_manager->exportCSV();
+        exit;
+    }
 ?>
+
+<!DOCTYPE HTML>
+<html lang="es">
 
 <head>
     <!-- Datos que describen el documento -->
@@ -318,12 +323,6 @@
             <form method="POST">
                 <button type="submit" name="exportCSV">Exportar</button>
             </form>
-            <?php
-                // Procesar exportación de datos a CSV 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['exportCSV'])) {
-                    $f1_manager->exportCSV();
-                }
-            ?>
         </section>
         <hr/>
 

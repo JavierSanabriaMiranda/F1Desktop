@@ -218,11 +218,13 @@
             $best_pilots = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo "<section>";
             echo "<h3>Clasificación Final</h3>";
-            foreach($best_pilots as $pilot) {
+            foreach($best_pilots as $index => $pilot) {
                 $name = ucfirst($pilot['nombre']);
                 $surname = ucfirst($pilot['apellido']);
-
-                echo "<p>{$name} {$surname} - {$pilot['sum(pc.puntos)']}</p>";
+                $medal = '';
+                if ($index < 3)
+                    $medal = ['🥇', '🥈', '🥉'][$index];
+                echo "<p>{$medal} {$name} {$surname} - {$pilot['sum(pc.puntos)']}</p>";
             }
             echo "</section>";
         }

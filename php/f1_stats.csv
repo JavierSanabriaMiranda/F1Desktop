@@ -1,15 +1,21 @@
 #TABLE,equipos
 id_equipo,nombre,pais
-1,aston_martin,inglaterra
-2,ferrari,italia
-3,redbull,austria
-4,mercedes,alemania
+1,Alfa Romeo (Sauber),suiza
+2,AlphaTauri,italia
+3,Alpine,francia
+4,Aston Martin,inglaterra
+5,Ferrari,italia
+6,Haas,estados_unidos
+7,McLaren,inglaterra
+8,Mercedes,alemania
+9,Red Bull Racing,austria
+10,Williams,inglaterra
 #TABLE,pilotos
 id_piloto,nombre,apellido,fecha_nacimiento,nacionalidad,id_equipo
-1,fernando,alonso,1981-07-29,español,1
-2,carlos,sainz,1994-09-01,español,2
-3,max,verstappen,1997-09-30,holandes,3
-4,lewis,hamilton,1985-01-07,ingles,4
+1,fernando,alonso,1981-07-29,español,7
+2,carlos,sainz,1994-09-01,español,5
+3,max,verstappen,1997-09-30,holandes,9
+4,lewis,hamilton,1985-01-07,ingles,8
 #TABLE,circuitos
 id_circuito,nombre,pais,localidad,longitud
 1,Sakhir,Bahrein,Manama,5412

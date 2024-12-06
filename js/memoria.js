@@ -164,7 +164,10 @@ class Memoria {
             article.onclick = this.flipCard.bind(article, game)
         }
         // Añadir acción al botón que muestra el panel de reglas del juego
-        document.querySelector("section>header>button").onclick = this.showGameRules.bind(this)
+        document.querySelector("section>header>section>button:first-of-type").onclick = this.showGameRules.bind(this)
+        // Añadir acción al botón que muestra el panel de reglas del juego
+        document.querySelector("section>header>section>button:nth-of-type(2)").onclick = this.resetGame.bind(this)
+
         // Añadir acción al botón que cierra el panel de reglas
         document.querySelector("section>section>header>button").onclick = this.hideGameRules.bind(this)
     }
@@ -177,6 +180,19 @@ class Memoria {
     hideGameRules() {
         var rulesPanel = document.querySelector("section>section")
         rulesPanel.setAttribute("hidden", '')
+    }
+
+    resetGame() {
+        var section = document.querySelector("body > section:first-of-type");
+        var articles = document.querySelectorAll("body > section:first-of-type > article");
+
+        // Remove all child articles from the section
+        articles.forEach(article => section.removeChild(article));
+
+        this.resetBoard();
+        this.shuffleElements();
+        this.createElements();
+        this.addEventListeners();
     }
 }
 

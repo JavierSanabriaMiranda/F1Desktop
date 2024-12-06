@@ -34,10 +34,10 @@
     width: 100%;
  }
 
-  /* Especificidad 014 */
+  /* Especificidad 015 */
   /* Botón de ayuda */
-  body>section:first-of-type>header>button {
-   border-radius: 10%;
+  body>section:first-of-type>header>section>button {
+   border-radius: 5%;
    color: #f2c75c;
    background-color: #254b80;
    font-size: 1.5em;
@@ -162,12 +162,6 @@
     body>section:first-of-type>header>h2 {
        position: static;
        width: 90%;
-    }
-
-    /* Especificidad 014 */
-    /* Se establece a su posición original */
-    body>section:first-of-type>header>button {
-       position: static;
     }
 
     /* Estilo del panel de explicación del juego */

@@ -17,10 +17,12 @@
  }
 
  /* Especificidad 013 */
+ /* Cabecera del juego */
  body>section:first-of-type>header {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     background-color: white;
 
  }
@@ -30,9 +32,17 @@
     background-color: #1b365d;
     padding: 1%;
     width: 100%;
-    position: relative;
-    left: 2%;
  }
+
+  /* Especificidad 014 */
+  /* Botón de ayuda */
+  body>section:first-of-type>header>button {
+   border-radius: 10%;
+   color: #f2c75c;
+   background-color: #254b80;
+   font-size: 1.5em;
+   font-weight: bold;
+}
 
  /* Especificidad 013 */
  /* Tarjetas */
@@ -81,18 +91,6 @@
     transform: rotateY(180deg);
  }
 
- /* Especificidad 014 */
- body>section:first-of-type>header>button {
-    border-radius: 50%;
-    color: #f2c75c;
-    width: 1.5em;
-    background-color: #254b80;
-    font-size: 1.5em;
-    font-weight: bold;
-    position: relative;
-    left: 5%;
- }
-
  /* Estilo del panel de explicación del juego */
 
  /* Especificidad 002 */
@@ -115,6 +113,7 @@
  }
 
  /* Especificidad 003 */
+ /* Cabecera panel de ayuda del juego */
  section>section>header {
     display: flex;
     flex-wrap: nowrap;

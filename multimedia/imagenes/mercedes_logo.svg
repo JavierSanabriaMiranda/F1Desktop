@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" version="1.1" viewBox="0 0 358 112" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"
+    version="1.1" viewBox="0 0 358 112" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+    <!-- Definición del filtro para crear el contorno -->
+  <defs>
+    <filter id="border-filter" x="-5%" y="-5%" width="110%" height="110%">
+      <feMorphology operator="dilate" radius="0.7" in="SourceAlpha" result="dilated" />
+      <feFlood flood-color="white" />
+      <feComposite in2="dilated" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+    <!-- Aplicación del filtro a todo el SVG -->
+  <g filter="url(#border-filter)">    
     <g transform="matrix(1.7396 0 0 1.7396 56.085 55.726)">
             <g transform="translate(-32,-32)">
                 <g fill-rule="nonzero">
@@ -56,6 +72,7 @@
                 <path d="m419.61 130.88 4.6 13.37h-1.19l-1.29-3.76h-5.09l-1.31 3.76h-1.17l4.6-13.37zm-0.44 1.61-2.23 7h4.44z"/>
                 <path d="m429.55 130.98 4 12 4-12h1.83v13.27h-1.13v-12.23l-4.12 12.23h-1.13l-4.14-12.23v12.23h-1.13v-13.27z"/>
             </g>
+        </g>
     <defs>
         <linearGradient id="_Linear1" x2="1" gradientTransform="matrix(48,40.2,-40.2,48,8,11.9)" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" offset="0"/><stop stop-color="#e7e8e6" offset=".1"/><stop stop-color="#cdd0d0" offset=".1"/><stop stop-color="#b5bbbd" offset=".2"/><stop stop-color="#a5acaf" offset=".2"/><stop stop-color="#9ba3a7" offset=".3"/><stop stop-color="#98a0a4" offset=".3"/><stop stop-color="#828a8f" offset=".4"/><stop stop-color="#667075" offset=".5"/><stop stop-color="#535c63" offset=".6"/><stop stop-color="#475158" offset=".7"/><stop stop-color="#434d54" offset=".8"/><stop stop-color="#475157" offset="1"/></linearGradient>
         <linearGradient id="_Linear2" x2="1" gradientTransform="matrix(45,37.8,-37.8,45,9.5,13.1)" gradientUnits="userSpaceOnUse"><stop stop-color="#0b1f2a" offset="0"/><stop stop-color="#333f47" offset=".2"/><stop stop-color="#777f84" offset=".5"/><stop stop-color="#81898d" offset=".5"/><stop stop-color="#b3b8b8" offset=".7"/><stop stop-color="#d2d5d3" offset=".8"/><stop stop-color="#dee0dd" offset=".8"/><stop stop-color="#fbfbfb" offset="1"/></linearGradient>

@@ -34,15 +34,24 @@
     width: 100%;
  }
 
-  /* Especificidad 015 */
-  /* Botón de ayuda */
-  body>section:first-of-type>header>section>button {
-   border-radius: 5%;
-   color: #f2c75c;
-   background-color: #254b80;
-   font-size: 1.5em;
-   font-weight: bold;
-}
+
+ /* Especificidad 014 */
+ body>section:first-of-type>header>section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5%
+ }
+
+ /* Especificidad 015 */
+ /* Botón de ayuda y de reiniciar */
+ body>section:first-of-type>header>section>button {
+    border-radius: 5%;
+    color: #f2c75c;
+    background-color: #254b80;
+    font-size: 1.5em;
+ }
 
  /* Especificidad 013 */
  /* Tarjetas */
@@ -164,6 +173,12 @@
        width: 90%;
     }
 
+    /* Especificidad 014 */
+    /* Se establece a su posición original */
+    body>section:first-of-type>header>section>button {
+       font-size: medium;
+    }
+
     /* Estilo del panel de explicación del juego */
 
     /* Especificidad 002 */
@@ -183,9 +198,9 @@
     }
 
     /* Especificidad 014 */
-    /* Se establece a su posición original */
-    body>section:first-of-type>header>button {
-       font-size: large;
+    /* Se aumenta el espacio entre los botones para que sea más dificil darle a uno sin querer */
+    body>section:first-of-type>header>section {
+      gap: 15%;
     }
 
  }

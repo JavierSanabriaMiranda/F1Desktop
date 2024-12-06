@@ -4,7 +4,7 @@
   <!-- Definición del filtro para crear el contorno -->
   <defs>
     <filter id="border-filter" x="-5%" y="-5%" width="110%" height="110%">
-      <feMorphology operator="dilate" radius="0.5" in="SourceAlpha" result="dilated" />
+      <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="dilated" />
       <feFlood flood-color="white" />
       <feComposite in2="dilated" operator="in" />
       <feMerge>

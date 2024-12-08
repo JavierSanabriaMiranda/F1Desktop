@@ -53,6 +53,10 @@
     font-size: 1.5em;
  }
 
+ body>section:first-of-type>header>section>button:hover {
+    scale: 1.1;
+ }
+
  /* Especificidad 013 */
  /* Tarjetas */
  body>section:first-of-type>article {
@@ -167,9 +171,8 @@
     }
 
     /* Especificidad 014 */
-    /* Se redefine el ancho del titulo del juego y se establece a su posición original */
+    /* Se redefine el ancho del titulo del juego */
     body>section:first-of-type>header>h2 {
-       position: static;
        width: 90%;
     }
 
@@ -188,7 +191,7 @@
     }
  }
 
- @media only screen and (max-width: 400px) {
+ @media only screen and (max-width: 450px) {
 
     /* Especificidad 014 */
     /* No es necesario establecer un color de primer plano pues ya lo hereda de body*/
@@ -200,7 +203,19 @@
     /* Especificidad 014 */
     /* Se aumenta el espacio entre los botones para que sea más dificil darle a uno sin querer */
     body>section:first-of-type>header>section {
-      gap: 15%;
+       gap: 15%;
+    }
+
+    /* Especificidad 014 */
+    /* Se aumenta el ancho de las tarjetas para que hayan 3 por fila en vez de 4 */
+    body>section:first-of-type>article {
+       width: 30%;
+    }
+
+    /* Especificidad 014 */
+    /* Se redefine el tamaño del titulo del juego */
+    body>section:first-of-type>header>h2 {
+       font-size: medium;
     }
 
  }

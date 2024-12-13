@@ -98,7 +98,8 @@ main.load>div:last-of-type {
 }
 
 section {
-    margin: 0% 25%
+    margin: 0% 25%;
+    justify-content: center;
 }
 
 /* Especificidad 002 */
@@ -109,9 +110,10 @@ section>h3 {
 /* Especificidad 002 */
 section>form {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: 1fr 0.5fr;
     gap: 3%;
+    width: 100%; 
 }
 
 /* Especificidad 003 */
@@ -120,8 +122,9 @@ section>form>section {
 }
 
 /* Especificidad 004 */
-section>form>section>h4 {
+section>form>label {
     margin: 0%;
+    grid-row: 1;
 }
 
 /* Especificidad 014 */
@@ -196,12 +199,7 @@ section>h3 {
 
 @media only screen and (max-width: 700px) {
 
-    /* Especificidad 002 */
-    /* Se redefine el número de elementos que se muestran en el formulario */
-    section>form {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr 1fr 0.5fr;
-    }
+   
 
     /* Especificidad 013 */
     /* Se redefine las columnas que ocupa el botón */

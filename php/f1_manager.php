@@ -308,7 +308,9 @@
         <section>
             <h4>Importar Datos de CSV:</h4>
             <form method="POST" enctype="multipart/form-data">
-                <input type="file" name="csvFile" />
+                <label for="csv">Archivo CSV:</label>
+                <br>
+                <input type="file" name="csvFile" id="csv"/>
                 <button type="submit" name="importCSV">Importar</button>
             </form>
             <?php
@@ -332,16 +334,20 @@
             <section>
                 <h3>Crear Nuevo Piloto</h3>
                 <form method="POST">
-                    <h4>Nombre:</h4>
-                    <input type="text" name="nombre" required/>
-                    <h4>Apellido:</h4>
-                    <input type="text" name="apellido" required/>
-                    <h4>Fecha de Nacimiento:</h4>
-                    <input type="date" name="fecha_nacimiento" required/>
-                    <h4>Nacionalidad:</h4>
-                    <input type="text" name="nacionalidad" required/>
-                    <h4>Equipo:</h4>
-                    <select name="equipo" >
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" required id="nombre"/>
+                    <br>
+                    <label for="apellidos">Apellido:</label>
+                    <input type="text" name="apellido" required id="apellidos"/>
+                    <br>
+                    <label for="nacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" name="fecha_nacimiento" required id="nacimiento"/>
+                    <br>
+                    <label for="nacionalidad">Nacionalidad:</label>
+                    <input type="text" name="nacionalidad" required id="nacionalidad"/>
+                    <br>
+                    <label for="equipo">Equipo:</label>
+                    <select name="equipo" id="equipo">
                         <?php
                             $teams = $f1_manager->getTeams();
                             if ($teams !== false) {
@@ -351,6 +357,7 @@
                             }
                         ?>
                     </select>
+                    <br>
                     <button type="submit" name="createPilot">Crear Piloto</button>
                     <?php
                         // Procesar creación de nuevo piloto 

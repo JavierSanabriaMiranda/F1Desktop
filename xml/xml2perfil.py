@@ -71,7 +71,7 @@ def crearSVGAltimetria(alturas, distancias, archivoFinal, escala_global = 1):
 
     # Convertir los puntos a una cadena de puntos para el elemento polyline
     str_puntos_polilinea = ' '.join(f'{x},{y}' for x, y in puntos_polilinea)
-    ET.SubElement(svg, 'polyline', points=str_puntos_polilinea, stroke="blue", fill="lightblue", stroke_width="2")
+    ET.SubElement(svg, 'polyline', points=str_puntos_polilinea, stroke="blue", fill="lightblue", **{"stroke-width": "2"})
 
     # Guardar el archivo SVG
     tree = ET.ElementTree(svg)

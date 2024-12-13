@@ -60,12 +60,12 @@ class Circuito {
 
             var mainContentAsHTML = `
                 <h4>${name}</h6>
-                <h5>${longitude}<h5>
-                <h5>${width}<h5>
-                <h5>${date} // ${time}<h5>
-                <h5>${turns}<h5>
-                <h5>${locality}<h5>
-                <h5>${country}<h5>
+                <h5>${longitude}</h5>
+                <h5>${width}</h5>
+                <h5>${date} // ${time}</h5>
+                <h5>${turns}</h5>
+                <h5>${locality}</h5>
+                <h5>${country}</h5>
             `
 
             $("main>section:first").append(mainContentAsHTML)

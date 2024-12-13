@@ -21,7 +21,8 @@
  /* NO es necesario establecer un color de primer plano pues ya lo hereda de body */
  body>section:first-of-type>header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     background-color: white;
@@ -45,16 +46,17 @@
     gap: 5%
  }
 
- /* Especificidad 015 */
+ /* Especificidad 014 */
  /* Botón de ayuda y de reiniciar */
- body>section:first-of-type>header>section>button {
+ body>section:first-of-type>header>button {
     border-radius: 5%;
     color: #f2c75c;
     background-color: #254b80;
     font-size: 1.5em;
  }
 
- body>section:first-of-type>header>section>button:hover {
+  /* Especificidad 024 */
+ body>section:first-of-type>header>button:hover {
     transform: scale(1.1);
  }
 

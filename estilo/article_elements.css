@@ -60,9 +60,29 @@ article>h3:first-of-type {
     color: #f2c75c;
 }
 
+@media only screen and (max-width: 800px) {
+
+    /* Especificidad 002 */
+    /* Se cambia la cantidad de columnas del grid layout */
+    main > section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Especificidad 003 */
+    /* Quitamos el grid-row para que no se dispongan en una fila concreta */
+    main > section>label {
+        grid-row: initial;
+    }
+}
 
 
 @media only screen and (max-width: 530px) {
+
+    /* Especificidad 002 */
+    /* Se cambia la cantidad de columnas del grid layout */
+    main > section {
+        grid-template-columns: 1fr;
+    }
 
     /* Especificidad 001 */
     /* Se cambia aumenta el margen horizontal */

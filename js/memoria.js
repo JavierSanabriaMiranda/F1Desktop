@@ -164,9 +164,9 @@ class Memoria {
             article.onclick = this.flipCard.bind(article, game)
         }
         // Añadir acción al botón que muestra el panel de reglas del juego
-        document.querySelector("section>header>section>button:first-of-type").onclick = this.showGameRules.bind(this)
+        document.querySelector("section>header>button:first-of-type").onclick = this.showGameRules.bind(this)
         // Añadir acción al botón que muestra el panel de reglas del juego
-        document.querySelector("section>header>section>button:nth-of-type(2)").onclick = this.resetGame.bind(this)
+        document.querySelector("section>header>button:nth-of-type(2)").onclick = this.resetGame.bind(this)
 
         // Añadir acción al botón que cierra el panel de reglas
         document.querySelector("section>section>header>button").onclick = this.hideGameRules.bind(this)

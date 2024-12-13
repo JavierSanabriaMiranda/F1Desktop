@@ -18,16 +18,17 @@
 
  /* Especificidad 013 */
  /* Cabecera del juego */
+ /* NO es necesario establecer un color de primer plano pues ya lo hereda de body */
  body>section:first-of-type>header {
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
     background-color: white;
-
  }
 
  /* Especificidad 014 */
+  /* NO es necesario establecer un color de primer plano pues ya lo hereda de h2 del documento estilo */
  body>section:first-of-type>header>h2 {
     background-color: #1b365d;
     padding: 1%;
@@ -54,7 +55,7 @@
  }
 
  body>section:first-of-type>header>section>button:hover {
-    scale: 1.1;
+    transform: scale(1.1);
  }
 
  /* Especificidad 013 */
@@ -107,6 +108,7 @@
  /* Estilo del panel de explicación del juego */
 
  /* Especificidad 002 */
+ /* No es necesario establecer un color de primer plano pues ya lo hereda de body */
  section>section {
     display: block;
     border-style: solid;
@@ -127,6 +129,7 @@
 
  /* Especificidad 003 */
  /* Cabecera panel de ayuda del juego */
+ /* No es necesario establecer un color de primer plano pues ya lo hereda de body */
  section>section>header {
     display: flex;
     flex-wrap: nowrap;

@@ -75,6 +75,7 @@ main nav:first-of-type > a {
     padding: 3%;
 }
 
+/* Especificidad 002 */
 h2+button {
     margin: 0% 3%;
 }

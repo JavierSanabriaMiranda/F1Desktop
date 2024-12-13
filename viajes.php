@@ -32,7 +32,8 @@
                 foreach ($rsp_obj['photos']['photo'] as $photo) {
                     if (count($this->photos) >= 10) 
                         break;
-                    $photo_url = "https://farm" . $photo['farm'] . ".staticflickr.com/" . $photo['server'] . "/" . $photo['id'] . "_" . $photo['secret'] . ".jpg";
+                    $photo_url = "https://farm" . $photo['farm'] . ".staticflickr.com/" . $photo['server'] . 
+                                                            "/" . $photo['id'] . "_" . $photo['secret'] . ".jpg";
                     $this->photos[] = $photo_url;
             }
             return $this->photos;
@@ -101,7 +102,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js" async="false" defer="true"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/viajes.js"></script>

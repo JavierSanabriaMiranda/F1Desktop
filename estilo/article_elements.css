@@ -21,8 +21,13 @@ main > section > h2 {
 }
 
 /* Especificidad 002 */
-section > textarea, section > h4 {
+section > textarea, section > label {
     margin: 0% 2%;
+}
+
+/* Especificidad 002 */
+section > label {
+    grid-row: 2;
 }
 
 /* Especificidad 023 */

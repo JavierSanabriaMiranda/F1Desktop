@@ -40,23 +40,24 @@
     <h2>Noticias</h2>
     <main>
         <h3>Introduzca sus noticias desde un archivo de texto:</h3>
-        <input type="file"/>
-        
+        <label for="Archivo">Introduzca Archivo de Texto:</label>
+        <br>
+        <input type="file" id="Archivo" />
+
         <section>
             <h3>Introduzca sus noticias manualmente:</h3>
-            <section>
-                <h4>Título</h4>
-                <textarea></textarea>
-            </section>
-            <section>
-                <h4>Contenido</h4>
-                <textarea></textarea>
-            </section>
-            <section>
-                <h4>Autor</h4>
-                <textarea></textarea>
-            </section>
-            
+
+            <label for="Titulo">Título</label>
+            <textarea id="Titulo"></textarea>
+
+
+            <label for="Contenido">Contenido</label>
+            <textarea id="Contenido"></textarea>
+
+            <label for="Autor">Autor</label>
+            <textarea id="Autor"></textarea>
+
+
             <button>Crear Noticia</button>
         </section>
         <section>

@@ -328,6 +328,7 @@
 
         <!-- Sección de creación de nuevo piloto -->
         <section>
+            <h3>Crea tu nuevo piloto y haz tu simulación de temporada de F1</h3>
             <section>
                 <h3>Crear Nuevo Piloto</h3>
                 <form method="POST">
@@ -359,7 +360,7 @@
                     ?>
                 </form>
             </section>
-            <!-- Sección de creación de nuevo piloto -->
+            <!-- Sección de Simulación  -->
             <section>
                 <h3>Simulación</h3>
                 <form method="POST">
